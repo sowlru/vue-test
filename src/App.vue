@@ -1,20 +1,17 @@
 <template>
     <div class="app">
-        <form>
-            <h4>Мой чат</h4>
-            <input class="input" type="text" placeholder="Name">
-            <input class="input" type="text" placeholder="Description">
-            <button class="btn">Create</button>
-        </form>
-        <div class="post" v-for="post in posts">
-            <div><strong>Name: </strong>{{ post.title }}</div>
-            <div><strong>Description: </strong>{{ post.body }}</div>
-        </div>
+        <post-form @create="createPost"/>
+        <post-list :posts="posts"/>
     </div>
 </template>
 
 <script>
+import PostForm from "@/component/PostForm";
+import PostList from "@/component/PostList";
 export default {
+    components: {
+        PostForm, PostList
+    },
     data() {
         return {
             posts: [
@@ -22,11 +19,11 @@ export default {
                 {id: 2, title: 'Post 2', body: 'Text 2'},
                 {id: 3, title: 'Post 3', body: 'Text 3'},
                 {id: 4, title: 'Post 4', body: 'Text 4'},
-            ]
+            ],
         }
     },
     methods: {
-
+        createPost(post) { this.posts.push(post); },
     }
 }
 </script>
@@ -46,23 +43,6 @@ export default {
     margin-top: 15px;
     border: 2px solid teal;
     padding: 10px 15px;
-}
-form {
-    display: flex;
-    flex-direction: column;
-}
-.btn {
-    margin-top: 15px;
-    border: 2px solid teal;
-    padding: 10px 15px;
-    align-self: flex-end;
-    background: none;
-    color: teal;
-}
-.post {
-    margin-top: 15px;
-    border: 2px solid teal;
-    padding: 15px;
 }
 </style>
 
