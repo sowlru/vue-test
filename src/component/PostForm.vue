@@ -1,17 +1,8 @@
 <template>
 <form @submit.prevent>
     <h4>Мой чат</h4>
-    <input 
-        v-model="post.title"
-        class="input" type="text" 
-        placeholder="Name"
-    >
-    <input 
-        v-bind:value="post.body"
-        @input="post.body=$event.target.value"
-        class="input" type="text" 
-        placeholder="Description"
-    >
+    <my-input v-model="post.title" placeholder="Name"/>
+    <my-input v-model="post.body" placeholder="Description"/>
     <my-button 
         style="align-self: flex-end; margin-top: 15px;"
         @click="createPost"
