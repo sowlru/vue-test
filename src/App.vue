@@ -7,35 +7,52 @@
         <my-dialog v-model:show="dialogVisible">
             <post-form @create="createPost"/>
         </my-dialog>
-        
-        <post-list :posts="posts" @remove="removePost"/>
+        <post-list 
+            :posts="posts" 
+            @remove="removePost"
+            v-if="!isPostLoading"
+        />
+        <div v-else>Loading...</div>
     </div>
 </template>
 
 <script>
 import PostForm from "@/component/PostForm";
 import PostList from "@/component/PostList";
+import axios from 'axios';
 export default {
     components: {
         PostForm, PostList
     },
     data() {
         return {
-            posts: [
-                {id: 1, title: 'Post 1', body: 'Text 1'},
-                {id: 2, title: 'Post 2', body: 'Text 2'},
-                {id: 3, title: 'Post 3', body: 'Text 3'},
-                {id: 4, title: 'Post 4', body: 'Text 4'},
-            ],
+            posts: [ ],
             dialogVisible: false,
             modificatorValue: '',
+            isPostLoading: false,
 
         }
     },
     methods: {
         createPost(post) { this.posts.push(post); this.dialogVisible = false; },
         removePost(post) { this.posts = this.posts.filter(p => p.id !== post.id); },
-        showDialog() { this.dialogVisible = true; }
+        showDialog() { this.dialogVisible = true; },
+        async fetchPosts() { 
+            try {
+                this.isPostLoading = true;
+                setTimeout( async () => {
+                    const response = await axios.get('https://jsonplaceholder.typicode.com/posts?_limit=10');
+                    this.posts = response.data;
+                    this.isPostLoading = false;
+                }, 1000)
+
+            } catch(e) {
+                alert('error in fetchUsers')
+            }
+        }
+    },
+    mounted() {
+        this.fetchPosts();
     }
 }
 </script>
