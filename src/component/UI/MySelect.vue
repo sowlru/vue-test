@@ -1,6 +1,6 @@
 <template>
     <select v-model="modelValue" @change="changeOption">
-        <option disabled value="">Select from list</option>
+        <option disabled value="">Sort list</option>
         <option 
             v-for="option in options"
             :key="option.value"
@@ -29,11 +29,5 @@ export default {
 </script>
 
 <style scoped>
-/* .input {
-    width: 100%;
-    border: 2px solid teal;
-    margin-top: 15px;
-    border: 2px solid teal;
-    padding: 10px 15px;
-} */
+
 </style>
