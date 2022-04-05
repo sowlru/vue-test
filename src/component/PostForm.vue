@@ -1,6 +1,6 @@
 <template>
 <form @submit.prevent>
-    <h4>Мой чат</h4>
+    <h4>Новый пост:</h4>
     <my-input v-model="post.title" placeholder="Name"/>
     <my-input v-model="post.body" placeholder="Description"/>
     <my-button 
