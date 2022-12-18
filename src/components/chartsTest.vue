@@ -22,15 +22,27 @@ export default {
       data: [],
     }
   },
-  mounted() {
-    this.parseProps()
-    this.initChart()
-    console.log("modelValue", this.modelValue)
-    console.log("date", this.date)
-    console.log("data", this.data)
-    console.log("createSeries", this.createSeries())
-  },
   methods: {
+    parseProps() {
+      let names = []
+      let date = []
+      let data = []
+      this.modelValue.forEach((item) => {
+        names.push(item.name)
+
+        let arr_date = []
+        let arr_data = []
+        item.data.forEach((elem) => {
+          arr_date.push(Object.keys(elem).join())
+          arr_data.push(Object.values(elem).join())
+        })
+        date.push(arr_date)
+        data.push(arr_data)
+      })
+      this.names = names
+      this.date = date[0]
+      this.data = data
+    },
     initChart() {
       this.chart = echarts.init(document.getElementById("chart"))
 
@@ -123,26 +135,14 @@ export default {
       }
       return series
     },
-    parseProps() {
-      let names = []
-      let date = []
-      let data = []
-      this.modelValue.forEach((item) => {
-        names.push(item.name)
-
-        let arr_date = []
-        let arr_data = []
-        item.data.forEach((elem) => {
-          arr_date.push(Object.keys(elem).join())
-          arr_data.push(Object.values(elem).join())
-        })
-        date.push(arr_date)
-        data.push(arr_data)
-      })
-      this.names = names
-      this.date = date[0]
-      this.data = data
-    },
+  },
+  mounted() {
+    this.parseProps()
+    this.initChart()
+    console.log("modelValue", this.modelValue)
+    console.log("date", this.date)
+    console.log("data", this.data)
+    console.log("createSeries", this.createSeries())
   },
 }
 </script>
