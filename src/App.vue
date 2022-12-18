@@ -8,9 +8,7 @@
     </div>
     <div class="a" id="a"></div>
     <hr />
-    <div class="chart-container">
-      <charts-test :p="data4chart" height="100%" width="100%" />
-    </div>
+    <charts-test v-model="data4chart" />
   </div>
 
   <!-- <svg display="none"> -->
@@ -59,10 +57,6 @@ export default {
   data() {
     return {
       json: [],
-      // data4chart: [
-      //   { ivan: [{ 1.02: "2" }, { 2.02: "10" }, { 3.02: "5" }] },
-      //   { vasya: [{ 1.02: "22" }, { 2.02: "1" }, { 3.02: "23" }] },
-      // ],
       data4chart: [
         {
           name: "ivan",
@@ -141,11 +135,6 @@ export default {
 }
 .icon:hover {
   fill: blue;
-}
-.chart-container {
-  position: relative;
-  width: 100%;
-  height: calc(100vh - 84px);
 }
 .container {
   display: flex;

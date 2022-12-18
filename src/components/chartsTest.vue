@@ -1,10 +1,5 @@
 <template>
-  <div
-    :id="id"
-    :class="className"
-    :style="{ height: height, width: width }"
-    :p="p"
-  />
+  <div id="chart" class="chart-container" />
 </template>
 
 <script>
@@ -12,33 +7,16 @@
 import echarts from "echarts"
 
 export default {
-  //   mixins: [resize],
   props: {
-    p: {
+    modelValue: {
       type: Array,
       default: "",
-    },
-    className: {
-      type: String,
-      default: "chart",
-    },
-    id: {
-      type: String,
-      default: "chart",
-    },
-    width: {
-      type: String,
-      default: "200px",
-    },
-    height: {
-      type: String,
-      default: "200px",
     },
   },
   data() {
     return {
       chart: null,
-      lineColor: ["red", "blue", "green", "yellow"],
+      lineColor: ["red", "blue", "green", "yellow", "orange"],
       names: [],
       date: [],
       data: [],
@@ -47,14 +25,14 @@ export default {
   mounted() {
     this.parseProps()
     this.initChart()
-    console.log("p", this.p)
+    console.log("modelValue", this.modelValue)
     console.log("date", this.date)
     console.log("data", this.data)
     console.log("createSeries", this.createSeries())
   },
   methods: {
     initChart() {
-      this.chart = echarts.init(document.getElementById(this.id))
+      this.chart = echarts.init(document.getElementById("chart"))
 
       this.chart.setOption({
         backgroundColor: "#394056",
@@ -149,7 +127,7 @@ export default {
       let names = []
       let date = []
       let data = []
-      this.p.forEach((item) => {
+      this.modelValue.forEach((item) => {
         names.push(item.name)
 
         let arr_date = []
@@ -168,3 +146,11 @@ export default {
   },
 }
 </script>
+<style>
+.chart-container {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  height: calc(100vh - 84px);
+}
+</style>
