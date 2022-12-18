@@ -1,7 +1,6 @@
 <template>
   <div class="container">
     <toast-editor />
-    <hr />
     <charts-test v-model="data4chart" />
   </div>
 

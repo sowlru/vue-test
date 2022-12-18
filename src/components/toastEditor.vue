@@ -12,18 +12,35 @@
 
 <script>
 /* eslint-disable */
-const A = require("tui-image-editor")
+const TIE = require("tui-image-editor")
 const whiteTheme = require("/public/background.jpg")
-let ie
 export default {
   data() {
     return {
+      editor: null,
       json: [],
     }
   },
   methods: {
+    initEditor() {
+      this.editor = new TIE(
+        document.querySelector("#a", {
+          includeUI: {
+            loadImage: {
+              path: "/public/favicon.ico",
+              name: "SampleImage",
+            },
+            theme: whiteTheme,
+            initMenu: "filter",
+            menuBarPosition: "bottom",
+          },
+          cssMaxWidth: 2000,
+          cssMaxHeight: 1000,
+        })
+      )
+    },
     add() {
-      ie.addShape("circle", {
+      this.editor.addShape("circle", {
         fill: "blue",
         stroke: "red",
         strokeWidth: 3,
@@ -33,39 +50,24 @@ export default {
       })
     },
     parse() {
-      const o = ie._graphics._canvas._objects
+      const o = this.editor._graphics._canvas._objects
       this.json = JSON.stringify(o)
       console.log("parse", this.json)
     },
     clear() {
-      ie._graphics._canvas.clear
-      ie._graphics._canvas.renderAll()
-      return ie
+      this.editor._graphics._canvas.clear
+      this.editor._graphics._canvas.renderAll()
+      return this.editor
     },
     restore() {
-      const c = ie._graphics._canvas
+      const c = this.editor._graphics._canvas
       c.loadFromJSON(this.json, c.renderAll.bind(c))
       // c.renderAll()
       console.log("restore", c)
     },
   },
   mounted() {
-    ie = new A(
-      document.querySelector("#a", {
-        includeUI: {
-          loadImage: {
-            path: "/public/favicon.ico",
-            name: "SampleImage",
-          },
-          theme: whiteTheme,
-          initMenu: "filter",
-          menuBarPosition: "bottom",
-        },
-        cssMaxWidth: 2000,
-        cssMaxHeight: 1000,
-      })
-    )
-    // a.addImageObject("logo.png")
+    this.initEditor()
   },
 }
 </script>
