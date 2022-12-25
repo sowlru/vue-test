@@ -1,5 +1,5 @@
 <template>
-  <h1>Рекурсивный обход дерева: {{ tree }}</h1>
+  <h2>Обход дерева со стеком: {{ getTree }}</h2>
 </template>
 <script>
 /* eslint-disable */
@@ -8,11 +8,44 @@ export default {
     return {
       tree: [
         {
-          v: 5,
-          a: [{ v: 5 }, { v: 5 }],
+          v: 12,
+        },
+        {
+          v: 6,
+          a: [
+            {
+              v: 8,
+              a: [{ v: 9, a: [{ v: 11 }, { v: 10 }] }],
+            },
+            { v: 7 },
+          ],
+        },
+        {
+          v: 1,
+          a: [{ v: 5 }, { v: 4 }, { v: 3 }, { v: 2 }],
         },
       ],
     }
+  },
+  computed: {
+    getTree() {
+      let sum = 0
+      let stack = []
+      this.tree.forEach((node) => stack.push(node))
+      while (stack.length) {
+        console.log("stack", stack)
+        let node = stack.pop()
+        console.log("node", node)
+        sum += node.v
+        console.log("sum", sum)
+        if (node.a) {
+          node.a.forEach((node) => stack.push(node))
+          console.log("inside stack", stack)
+        }
+        console.log("-----")
+      }
+      return sum
+    },
   },
 }
 </script>

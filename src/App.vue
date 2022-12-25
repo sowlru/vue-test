@@ -1,8 +1,8 @@
 <template>
   <div class="container">
-    <!-- <toast-editor /> -->
-    <!-- <charts-test v-model="data4chart" /> -->
     <algorithm-test />
+    <!-- <charts-test v-model="data4chart" /> -->
+    <!-- <toast-editor /> -->
   </div>
 
   <!-- <svg display="none"> -->
@@ -41,9 +41,9 @@
 
 <script>
 /* eslint-disable */
+import algorithmTest from "@/components/algorithmTest"
 import chartsTest from "@/components/chartsTest.vue"
 import toastEditor from "@/components/toastEditor.vue"
-import algorithmTest from "@/components/algorithmTest"
 
 export default {
   components: { chartsTest, toastEditor, algorithmTest },
