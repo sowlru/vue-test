@@ -47,5 +47,18 @@ export default {
       return sum
     },
   },
+
+  /* promis() {
+      let a = 7
+      console.log("a", a)
+      let b = new Promise(function (a, b) {
+        setTimeout(() => {
+          a((a = 9))
+        }, 2000)
+      })
+      b.then(console.log)
+      console.log("b", b)
+    }, 
+  */
 }
 </script>
