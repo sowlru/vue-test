@@ -1,9 +1,9 @@
 <template>
   <div class="container">
-    <algorithm-test />
+    <!-- <algorithm-test /> -->
     <!-- <charts-test v-model="data4chart" /> -->
     <!-- <svg-test /> -->
-    <!-- <toast-editor /> -->
+    <toast-editor />
   </div>
 </template>
 
