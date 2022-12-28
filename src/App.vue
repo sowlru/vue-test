@@ -4,6 +4,9 @@
     <!-- <charts-test v-model="data4chart" /> -->
     <!-- <svg-test /> -->
     <toast-editor />
+
+    <!-- ELEMENT-PLUS -->
+    <!-- <table-test /> -->
   </div>
 </template>
 
@@ -14,8 +17,10 @@ import chartsTest from "@/components/chartsTest.vue"
 import svgTest from "@/components/svgTest.vue"
 import toastEditor from "@/components/toastEditor.vue"
 
+import tableTest from "@/elementPlus/tableTest"
+
 export default {
-  components: { algorithmTest, chartsTest, svgTest, toastEditor },
+  components: { algorithmTest, chartsTest, svgTest, toastEditor, tableTest },
   data() {
     return {
       data4chart: [
