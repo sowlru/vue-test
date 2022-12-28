@@ -3,6 +3,7 @@
     <div class="buttons">
       <div class="btn" @click="add">add</div>
       <div class="btn" @click="parse">parse</div>
+      <div class="btn" @click="remove">remove</div>
       <div class="btn" @click="clear">clear</div>
       <div class="btn" @click="restore">restore</div>
     </div>
@@ -19,6 +20,7 @@ export default {
     return {
       editor: null,
       json: [],
+      id: "",
     }
   },
   methods: {
@@ -40,14 +42,22 @@ export default {
       )
     },
     add() {
-      this.editor.addShape("circle", {
-        fill: "blue",
-        stroke: "red",
-        strokeWidth: 3,
-        rx: 100,
-        ry: 100,
-        isRegular: false,
-      })
+      const id = this.editor
+        .addShape("circle", {
+          fill: "blue",
+          stroke: "red",
+          strokeWidth: 3,
+          rx: 50,
+          ry: 50,
+          isRegular: false,
+        })
+        .then((objectProps) => {
+          this.id = objectProps.id
+          console.log("add : id", this.id)
+        })
+    },
+    remove() {
+      this.editor.removeObject(this.id)
     },
     parse() {
       const o = this.editor._graphics._canvas._objects
@@ -80,7 +90,7 @@ export default {
 }
 .btn {
   width: 100px;
-  height: 100px;
+  height: 50px;
   background-color: lightskyblue;
   margin: 10px;
   padding: 10px;
