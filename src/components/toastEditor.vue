@@ -2,8 +2,8 @@
   <div class="container">
     <div class="buttons">
       <div class="btn" @click="add">add</div>
-      <div class="btn" @click="parse">parse</div>
       <div class="btn" @click="remove">remove</div>
+      <div class="btn" @click="parse">parse</div>
       <div class="btn" @click="clear">clear</div>
       <div class="btn" @click="restore">restore</div>
     </div>
@@ -42,7 +42,7 @@ export default {
       )
     },
     add() {
-      const id = this.editor
+      this.editor
         .addShape("circle", {
           fill: "blue",
           stroke: "red",
@@ -63,16 +63,22 @@ export default {
       const o = this.editor._graphics._canvas._objects
       this.json = JSON.stringify(o)
       console.log("parse", this.json)
+      this.json1 =
+        '{"objects":' + this.json + ',"background":"rgba(100, 0, 100, 0.1)"}'
+      console.log("parse", this.json1)
+      this.json2 = '{"objects":' + this.json + "}"
+      console.log("parse2", this.json2)
     },
     clear() {
-      this.editor._graphics._canvas.clear
-      this.editor._graphics._canvas.renderAll()
-      return this.editor
+      this.editor.clearObjects()
     },
     restore() {
-      const c = this.editor._graphics._canvas
-      c.loadFromJSON(this.json, c.renderAll.bind(c))
-      // c.renderAll()
+      let c = this.editor._graphics.getCanvas()
+      c.backgroundColor = "red"
+      // const c = this.editor._graphics._canvas
+      c.loadFromJSON(this.json1, c.renderAll.bind(c))
+      // c.loadFromJSON(this.json2, c.renderAll.bind(c))
+      c.renderAll()
       console.log("restore", c)
     },
   },
