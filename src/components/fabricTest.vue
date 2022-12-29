@@ -20,10 +20,14 @@ export default {
   data() {
     return {
       //   canvas: null,
+      json: [],
     }
   },
   mounted() {
     canvas = new fabric.Canvas(this.$refs.canvas)
+    canvas.on({
+      "mouse:dblclick": this.handleDblclick,
+    })
   },
   methods: {
     addObject() {
@@ -32,6 +36,7 @@ export default {
         width: 50,
         height: 50,
       })
+      canvas.backgroundColor = "teal"
       canvas.add(rect)
     },
     upload() {
@@ -39,6 +44,13 @@ export default {
         image.scale(0.75)
         canvas.add(image)
       })
+    },
+    parse() {
+      this.json = JSON.stringify(canvas)
+      console.log("parse", this.json)
+    },
+    handleDblclick(e) {
+      console.log("handleDblclick", e.target)
     },
   },
 }
