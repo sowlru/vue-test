@@ -2,8 +2,9 @@
   <div class="container">
     <!-- <algorithm-test /> -->
     <!-- <charts-test v-model="data4chart" /> -->
+    <fabric-test />
     <!-- <svg-test /> -->
-    <toast-editor />
+    <!-- <toast-editor /> -->
 
     <!-- ELEMENT-PLUS -->
     <!-- <table-test /> -->
@@ -14,13 +15,21 @@
 /* eslint-disable */
 import algorithmTest from "@/components/algorithmTest"
 import chartsTest from "@/components/chartsTest.vue"
+import fabricTest from "@/components/fabricTest.vue"
 import svgTest from "@/components/svgTest.vue"
 import toastEditor from "@/components/toastEditor.vue"
 
 import tableTest from "@/elementPlus/tableTest"
 
 export default {
-  components: { algorithmTest, chartsTest, svgTest, toastEditor, tableTest },
+  components: {
+    algorithmTest,
+    chartsTest,
+    fabricTest,
+    svgTest,
+    toastEditor,
+    tableTest,
+  },
   data() {
     return {
       data4chart: [
