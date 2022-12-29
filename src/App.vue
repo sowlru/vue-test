@@ -18,7 +18,7 @@ import chartsTest from "@/components/chartsTest.vue"
 import fabricTest from "@/components/fabricTest.vue"
 import svgTest from "@/components/svgTest.vue"
 import toastEditor from "@/components/toastEditor.vue"
-
+// ELEMENT-PLUS
 import tableTest from "@/elementPlus/tableTest"
 
 export default {

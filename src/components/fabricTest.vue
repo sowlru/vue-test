@@ -47,14 +47,15 @@ export default {
     },
     parse() {
       this.json = JSON.stringify(canvas)
-      console.log("parse", this.json)
+      console.log("parse : canvas", canvas)
+      console.log("parse : json", this.json)
     },
     clear() {
       canvas.clear()
     },
     restore() {
       canvas.loadFromJSON(this.json, canvas.renderAll.bind(canvas))
-      console.log("restore", canvas)
+      console.log("restore : canvas", canvas)
     },
     handleDblclick(e) {
       console.log("handleDblclick", e.target)

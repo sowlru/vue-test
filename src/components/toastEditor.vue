@@ -61,17 +61,18 @@ export default {
       this.editor.removeObject(this.id)
     },
     parse() {
-      this.json = JSON.stringify(this.editor._graphics._canvas)
-      console.log("parse", this.json)
+      let canvas = this.editor._graphics._canvas
+      console.log("parse : canvas", canvas)
+      this.json = JSON.stringify(canvas)
+      console.log("parse : json", this.json)
     },
     clear() {
       this.editor.clearObjects()
     },
     restore() {
       let canvas = this.editor._graphics._canvas
-      canvas = JSON.parse(JSON.stringify(canvas))
+      console.log("restore : canvas", canvas)
       canvas.loadFromJSON(this.json, canvas.renderAll.bind(canvas))
-      console.log("restore", canvas)
     },
   },
   mounted() {
