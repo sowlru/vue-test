@@ -36,7 +36,7 @@ export default {
         width: 50,
         height: 50,
       })
-      canvas.backgroundColor = "teal"
+      canvas.backgroundColor = "cyan"
       canvas.add(rect)
     },
     upload() {
@@ -48,6 +48,13 @@ export default {
     parse() {
       this.json = JSON.stringify(canvas)
       console.log("parse", this.json)
+    },
+    clear() {
+      canvas.clear()
+    },
+    restore() {
+      canvas.loadFromJSON(this.json, canvas.renderAll.bind(canvas))
+      console.log("restore", canvas)
     },
     handleDblclick(e) {
       console.log("handleDblclick", e.target)
