@@ -2,8 +2,8 @@
   <div class="container">
     <h1>Fabric Test</h1>
     <div class="buttons">
-      <div class="btn" @click="add">add</div>
-      <div class="btn" @click="remove">remove</div>
+      <div class="btn" @click="addObject">add</div>
+      <div class="btn" @click="upload">upload</div>
       <div class="btn" @click="parse">parse</div>
       <div class="btn" @click="clear">clear</div>
       <div class="btn" @click="restore">restore</div>
@@ -15,23 +15,30 @@
 <script>
 /* eslint-disable */
 import { fabric } from "fabric"
+var canvas = null
 export default {
   data() {
     return {
-      canvas: null,
+      //   canvas: null,
     }
   },
   mounted() {
-    this.canvas = new fabric.Canvas(this.$refs.canvas)
+    canvas = new fabric.Canvas(this.$refs.canvas)
   },
   methods: {
-    add() {
+    addObject() {
       const rect = new fabric.Rect({
         fill: "red",
         width: 50,
         height: 50,
       })
-      this.canvas.add(rect)
+      canvas.add(rect)
+    },
+    upload() {
+      fabric.Image.fromURL("symbol_55.jpg", function (image) {
+        image.scale(0.75)
+        canvas.add(image)
+      })
     },
   },
 }
