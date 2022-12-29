@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <h1>Toast Editor Test</h1>
     <div class="buttons">
       <div class="btn" @click="add">add</div>
       <div class="btn" @click="remove">remove</div>
@@ -7,7 +8,7 @@
       <div class="btn" @click="clear">clear</div>
       <div class="btn" @click="restore">restore</div>
     </div>
-    <div id="a" class="a"></div>
+    <div id="canvas" class="canvas"></div>
   </div>
 </template>
 
@@ -26,7 +27,7 @@ export default {
   methods: {
     initEditor() {
       this.editor = new TIE(
-        document.querySelector("#a", {
+        document.querySelector("#canvas", {
           includeUI: {
             loadImage: {
               path: "/public/favicon.ico",
@@ -102,9 +103,7 @@ export default {
   padding: 10px;
   font-size: 18px;
 }
-.a {
-  width: 500px;
-  height: 500px;
-  background-color: #ccc;
+.canvas {
+  border: 1px solid #eee;
 }
 </style>

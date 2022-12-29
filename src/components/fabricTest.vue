@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <h1>Fabric Test</h1>
     <div class="buttons">
       <div class="btn" @click="add">add</div>
       <div class="btn" @click="remove">remove</div>
