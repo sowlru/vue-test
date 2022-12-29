@@ -8,7 +8,7 @@
       <div class="btn" @click="clear">clear</div>
       <div class="btn" @click="restore">restore</div>
     </div>
-    <div id="canvas" class="canvas"></div>
+    <div id="canvas" class="canvas" width="100%"></div>
   </div>
 </template>
 
@@ -61,26 +61,17 @@ export default {
       this.editor.removeObject(this.id)
     },
     parse() {
-      const o = this.editor._graphics._canvas._objects
-      this.json = JSON.stringify(o)
+      this.json = JSON.stringify(this.editor._graphics._canvas)
       console.log("parse", this.json)
-      this.json1 =
-        '{"objects":' + this.json + ',"background":"rgba(100, 0, 100, 0.1)"}'
-      console.log("parse", this.json1)
-      this.json2 = '{"objects":' + this.json + "}"
-      console.log("parse2", this.json2)
     },
     clear() {
       this.editor.clearObjects()
     },
     restore() {
-      let c = this.editor._graphics.getCanvas()
-      c.backgroundColor = "red"
-      // const c = this.editor._graphics._canvas
-      c.loadFromJSON(this.json1, c.renderAll.bind(c))
-      // c.loadFromJSON(this.json2, c.renderAll.bind(c))
-      c.renderAll()
-      console.log("restore", c)
+      let canvas = this.editor._graphics._canvas
+      canvas = JSON.parse(JSON.stringify(canvas))
+      canvas.loadFromJSON(this.json, canvas.renderAll.bind(canvas))
+      console.log("restore", canvas)
     },
   },
   mounted() {
@@ -89,6 +80,9 @@ export default {
 }
 </script>
 <style>
+/* 
+https://ui.toast.com/tui-image-editor
+*/
 .buttons {
   display: flex;
   justify-content: flex-start;

@@ -4,7 +4,7 @@
     <!-- <charts-test v-model="data4chart" /> -->
     <fabric-test />
     <!-- <svg-test /> -->
-    <!-- <toast-editor /> -->
+    <toast-editor />
 
     <!-- ELEMENT-PLUS -->
     <!-- <table-test /> -->
