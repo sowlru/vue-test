@@ -3,6 +3,7 @@
     <!-- <algorithm-test /> -->
     <!-- <charts-test v-model="data4chart" /> -->
     <fabric-test />
+    <!-- <proxy-test /> -->
     <!-- <svg-test /> -->
     <toast-editor />
 
@@ -16,6 +17,7 @@
 import algorithmTest from "@/components/algorithmTest"
 import chartsTest from "@/components/chartsTest.vue"
 import fabricTest from "@/components/fabricTest.vue"
+import proxyTest from "@/components/proxyTest.vue"
 import svgTest from "@/components/svgTest.vue"
 import toastEditor from "@/components/toastEditor.vue"
 // ELEMENT-PLUS
@@ -26,6 +28,7 @@ export default {
     algorithmTest,
     chartsTest,
     fabricTest,
+    proxyTest,
     svgTest,
     toastEditor,
     tableTest,
