@@ -1,8 +1,8 @@
 <template>
   <div>
     <p>xhr1: {{ xhr1 }}</p>
-    <p>xhr2: {{ xhr2 }}</p>
-    <p>xhr3: {{ xhr3 }}</p>
+    <p>xhr2.name: {{ xhr2 }}</p>
+    <p>xhr3.title: {{ xhr3 }}</p>
   </div>
 </template>
 <script>
@@ -44,15 +44,24 @@ export default {
       })
       request.send()
     },
-    loadUsers3(cb) {
+    loadUsers3() {
       const request = new XMLHttpRequest()
       request.open('GET', 'https://jsonplaceholder.typicode.com/users/')
       request.addEventListener('readystatechange', () => {
-        if (request.readyState === request.DONE) {
-          const response = JSON.parse(request.responseText)
-          this.xhr3 = response.map((x) => x.name)
-        }
-        cb()
+        if (request.readyState !== request.DONE) return
+        const [{ id }] = JSON.parse(request.responseText)
+
+        const requestPost = new XMLHttpRequest()
+        requestPost.open(
+          'GET',
+          `https://jsonplaceholder.typicode.com/posts?userId=${id}`
+        )
+        requestPost.addEventListener('readystatechange', () => {
+          if (requestPost.readyState !== requestPost.DONE) return
+          const posts = JSON.parse(requestPost.responseText)
+          this.xhr3 = posts.map((x) => x.title)
+        })
+        requestPost.send()
       })
       request.send()
     }
@@ -69,6 +78,6 @@ export default {
       })
       b.then(console.log)
       console.log("b", b)
-    }, 
+    },
   */
 </script>
