@@ -2,10 +2,11 @@
   <div class="container">
     <!-- <algorithm-test /> -->
     <!-- <charts-test v-model="data4chart" /> -->
-    <fabric-test />
+    <!-- <fabric-test /> -->
+    <promise-test />
     <!-- <proxy-test /> -->
     <!-- <svg-test /> -->
-    <toast-editor />
+    <!-- <toast-editor /> -->
 
     <!-- ELEMENT-PLUS -->
     <!-- <table-test /> -->
@@ -17,6 +18,7 @@
 import algorithmTest from "@/components/algorithmTest"
 import chartsTest from "@/components/chartsTest.vue"
 import fabricTest from "@/components/fabricTest.vue"
+import promiseTest from "@/components/promiseTest.vue"
 import proxyTest from "@/components/proxyTest.vue"
 import svgTest from "@/components/svgTest.vue"
 import toastEditor from "@/components/toastEditor.vue"
@@ -28,6 +30,7 @@ export default {
     algorithmTest,
     chartsTest,
     fabricTest,
+    promiseTest,
     proxyTest,
     svgTest,
     toastEditor,
