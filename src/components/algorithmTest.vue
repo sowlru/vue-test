@@ -8,23 +8,23 @@ export default {
     return {
       tree: [
         {
-          v: 12,
+          v: 12
         },
         {
           v: 6,
           a: [
             {
               v: 8,
-              a: [{ v: 9, a: [{ v: 11 }, { v: 10 }] }],
+              a: [{ v: 9, a: [{ v: 11 }, { v: 10 }] }]
             },
-            { v: 7 },
-          ],
+            { v: 7 }
+          ]
         },
         {
           v: 1,
-          a: [{ v: 5 }, { v: 4 }, { v: 3 }, { v: 2 }],
-        },
-      ],
+          a: [{ v: 5 }, { v: 4 }, { v: 3 }, { v: 2 }]
+        }
+      ]
     }
   },
   computed: {
@@ -33,20 +33,20 @@ export default {
       let stack = []
       this.tree.forEach((node) => stack.push(node))
       while (stack.length) {
-        console.log("stack", stack)
+        console.log('stack', stack)
         let node = stack.pop()
-        console.log("node", node)
+        console.log('node', node)
         sum += node.v
-        console.log("sum", sum)
+        console.log('sum', sum)
         if (node.a) {
           node.a.forEach((node) => stack.push(node))
-          console.log("inside stack", stack)
+          console.log('inside stack', stack)
         }
-        console.log("-----")
+        console.log('-----')
       }
       return sum
-    },
-  },
+    }
+  }
 
   /* promis() {
       let a = 7

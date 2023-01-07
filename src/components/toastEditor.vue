@@ -14,47 +14,47 @@
 
 <script>
 /* eslint-disable */
-const TIE = require("tui-image-editor")
-const whiteTheme = require("/public/background.jpg")
+const TIE = require('tui-image-editor')
+const whiteTheme = require('/public/background.jpg')
 export default {
   data() {
     return {
       editor: null,
       json: [],
-      id: "",
+      id: ''
     }
   },
   methods: {
     initEditor() {
       this.editor = new TIE(
-        document.querySelector("#canvas", {
+        document.querySelector('#canvas', {
           includeUI: {
             loadImage: {
-              path: "/public/favicon.ico",
-              name: "SampleImage",
+              path: '/public/favicon.ico',
+              name: 'SampleImage'
             },
             theme: whiteTheme,
-            initMenu: "filter",
-            menuBarPosition: "bottom",
+            initMenu: 'filter',
+            menuBarPosition: 'bottom'
           },
           cssMaxWidth: 2000,
-          cssMaxHeight: 1000,
+          cssMaxHeight: 1000
         })
       )
     },
     add() {
       this.editor
-        .addShape("circle", {
-          fill: "blue",
-          stroke: "red",
+        .addShape('circle', {
+          fill: 'blue',
+          stroke: 'red',
           strokeWidth: 3,
           rx: 50,
           ry: 50,
-          isRegular: false,
+          isRegular: false
         })
         .then((objectProps) => {
           this.id = objectProps.id
-          console.log("add : id", this.id)
+          console.log('add : id', this.id)
         })
     },
     remove() {
@@ -62,22 +62,22 @@ export default {
     },
     parse() {
       let canvas = this.editor._graphics._canvas
-      console.log("parse : canvas", canvas)
+      console.log('parse : canvas', canvas)
       this.json = JSON.stringify(canvas)
-      console.log("parse : json", this.json)
+      console.log('parse : json', this.json)
     },
     clear() {
       this.editor.clearObjects()
     },
     restore() {
       let canvas = this.editor._graphics._canvas
-      console.log("restore : canvas", canvas)
+      console.log('restore : canvas', canvas)
       canvas.loadFromJSON(this.json, canvas.renderAll.bind(canvas))
-    },
+    }
   },
   mounted() {
     this.initEditor()
-  },
+  }
 }
 </script>
 <style>

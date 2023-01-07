@@ -7,21 +7,21 @@ export default {
   data() {
     return {
       p: {
-        name: "alex",
-        age: 20,
-      },
+        name: 'alex',
+        age: 20
+      }
     }
   },
   computed: {
     pp() {
       return new Proxy(this.p, {
         get(target, prop) {
-          console.log("target", target)
-          console.log("prop", prop)
+          console.log('target', target)
+          console.log('prop', prop)
           return target[prop]
-        },
+        }
       })
-    },
-  },
+    }
+  }
 }
 </script>

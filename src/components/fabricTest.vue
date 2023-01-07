@@ -14,53 +14,53 @@
 
 <script>
 /* eslint-disable */
-import { fabric } from "fabric"
+import { fabric } from 'fabric'
 var canvas = null
 export default {
   data() {
     return {
       //   canvas: null,
-      json: [],
+      json: []
     }
   },
   mounted() {
     canvas = new fabric.Canvas(this.$refs.canvas)
     canvas.on({
-      "mouse:dblclick": this.handleDblclick,
+      'mouse:dblclick': this.handleDblclick
     })
   },
   methods: {
     addObject() {
       const rect = new fabric.Rect({
-        fill: "red",
+        fill: 'red',
         width: 50,
-        height: 50,
+        height: 50
       })
-      canvas.backgroundColor = "cyan"
+      canvas.backgroundColor = 'cyan'
       canvas.add(rect)
     },
     upload() {
-      fabric.Image.fromURL("symbol_55.jpg", function (image) {
+      fabric.Image.fromURL('symbol_55.jpg', function (image) {
         image.scale(0.75)
         canvas.add(image)
       })
     },
     parse() {
       this.json = JSON.stringify(canvas)
-      console.log("parse : canvas", canvas)
-      console.log("parse : json", this.json)
+      console.log('parse : canvas', canvas)
+      console.log('parse : json', this.json)
     },
     clear() {
       canvas.clear()
     },
     restore() {
       canvas.loadFromJSON(this.json, canvas.renderAll.bind(canvas))
-      console.log("restore : canvas", canvas)
+      console.log('restore : canvas', canvas)
     },
     handleDblclick(e) {
-      console.log("handleDblclick", e.target)
-    },
-  },
+      console.log('handleDblclick', e.target)
+    }
+  }
 }
 </script>
 <style>

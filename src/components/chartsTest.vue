@@ -4,22 +4,22 @@
 
 <script>
 /* eslint-disable */
-import echarts from "echarts"
+import echarts from 'echarts'
 
 export default {
   props: {
     modelValue: {
       type: Array,
-      default: "",
-    },
+      default: ''
+    }
   },
   data() {
     return {
       chart: null,
-      lineColor: ["red", "blue", "green", "yellow", "orange"],
+      lineColor: ['red', 'blue', 'green', 'yellow', 'orange'],
       names: [],
       date: [],
-      data: [],
+      data: []
     }
   },
   methods: {
@@ -44,78 +44,78 @@ export default {
       this.data = data
     },
     initChart() {
-      this.chart = echarts.init(document.getElementById("chart"))
+      this.chart = echarts.init(document.getElementById('chart'))
 
       this.chart.setOption({
-        backgroundColor: "#394056",
+        backgroundColor: '#394056',
         title: {
           top: 20,
-          text: "Активность",
+          text: 'Активность',
           textStyle: {
-            fontWeight: "normal",
+            fontWeight: 'normal',
             fontSize: 16,
-            color: "#F1F1F3",
+            color: '#F1F1F3'
           },
-          left: "1%",
+          left: '1%'
         },
         legend: {
           top: 40,
-          icon: "rect",
+          icon: 'rect',
           itemWidth: 14,
           itemHeight: 5,
           itemGap: 13,
           data: this.names,
-          right: "4%",
+          right: '4%',
           textStyle: {
             fontSize: 12,
-            color: "#F1F1F3",
-          },
+            color: '#F1F1F3'
+          }
         },
         grid: {
           top: 100,
-          left: "2%",
-          right: "2%",
-          bottom: "2%",
-          containLabel: true,
+          left: '2%',
+          right: '2%',
+          bottom: '2%',
+          containLabel: true
         },
         xAxis: [
           {
-            type: "category",
+            type: 'category',
             boundaryGap: false,
             axisLine: {
               lineStyle: {
-                color: "#57617B",
-              },
+                color: '#57617B'
+              }
             },
-            data: this.date,
-          },
+            data: this.date
+          }
         ],
         yAxis: [
           {
-            type: "value",
-            name: "(%)",
+            type: 'value',
+            name: '(%)',
             axisTick: {
-              show: false,
+              show: false
             },
             axisLine: {
               lineStyle: {
-                color: "#57617B",
-              },
+                color: '#57617B'
+              }
             },
             axisLabel: {
               margin: 10,
               textStyle: {
-                fontSize: 14,
-              },
+                fontSize: 14
+              }
             },
             splitLine: {
               lineStyle: {
-                color: "#57617B",
-              },
-            },
-          },
+                color: '#57617B'
+              }
+            }
+          }
         ],
-        series: this.createSeries(),
+        series: this.createSeries()
       })
     },
     createSeries() {
@@ -123,27 +123,27 @@ export default {
       for (let i = 0; i < this.names.length; i++) {
         series.push({
           name: this.names[i],
-          type: "line",
+          type: 'line',
           smooth: true,
           itemStyle: {
             normal: {
-              color: this.lineColor[i],
-            },
+              color: this.lineColor[i]
+            }
           },
-          data: this.data[i],
+          data: this.data[i]
         })
       }
       return series
-    },
+    }
   },
   mounted() {
     this.parseProps()
     this.initChart()
-    console.log("modelValue", this.modelValue)
-    console.log("date", this.date)
-    console.log("data", this.data)
-    console.log("createSeries", this.createSeries())
-  },
+    console.log('modelValue', this.modelValue)
+    console.log('date', this.date)
+    console.log('data', this.data)
+    console.log('createSeries', this.createSeries())
+  }
 }
 </script>
 <style>

@@ -33,18 +33,18 @@ export default {
       page: 1,
       pageSize: 2,
       cities: [], // get from server
-      selectedCities: [],
+      selectedCities: []
     }
   },
   methods: {
     handleSelectionChange(val) {
       this.selectedCities = val
-      console.log("handleSelectionChange : selectedCities", this.selectedCities)
+      console.log('handleSelectionChange : selectedCities', this.selectedCities)
     },
     handlePagination(p) {
-      console.log("handlePagination : page", p)
+      console.log('handlePagination : page', p)
       this.page = p
-    },
+    }
   },
   computed: {
     pagedCities() {
@@ -52,17 +52,17 @@ export default {
         this.pageSize * this.page - this.pageSize,
         this.pageSize * this.page
       )
-    },
+    }
   },
   mounted() {
     setTimeout(() => {
       this.cities = [
-        { city_id: 1, city_name: "Акташ" },
-        { city_id: 2, city_name: "Акутиха" },
-        { city_id: 3, city_name: "Алейск" },
+        { city_id: 1, city_name: 'Акташ' },
+        { city_id: 2, city_name: 'Акутиха' },
+        { city_id: 3, city_name: 'Алейск' }
       ]
     }, 5000)
-  },
+  }
 }
 </script>
 <style>
