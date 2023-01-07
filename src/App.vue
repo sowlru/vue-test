@@ -15,15 +15,15 @@
 
 <script>
 /* eslint-disable */
-import algorithmTest from "@/components/algorithmTest"
-import chartsTest from "@/components/chartsTest.vue"
-import fabricTest from "@/components/fabricTest.vue"
-import promiseTest from "@/components/promiseTest.vue"
-import proxyTest from "@/components/proxyTest.vue"
-import svgTest from "@/components/svgTest.vue"
-import toastEditor from "@/components/toastEditor.vue"
+import algorithmTest from '@/components/algorithmTest'
+import chartsTest from '@/components/chartsTest.vue'
+import fabricTest from '@/components/fabricTest.vue'
+import promiseTest from '@/components/promiseTest.vue'
+import proxyTest from '@/components/proxyTest.vue'
+import svgTest from '@/components/svgTest.vue'
+import toastEditor from '@/components/toastEditor.vue'
 // ELEMENT-PLUS
-import tableTest from "@/elementPlus/tableTest"
+import tableTest from '@/elementPlus/tableTest'
 
 export default {
   components: {
@@ -34,25 +34,25 @@ export default {
     proxyTest,
     svgTest,
     toastEditor,
-    tableTest,
+    tableTest
   },
   data() {
     return {
       data4chart: [
         {
-          name: "ivan",
-          data: [{ 1.02: "2" }, { 2.02: "5" }, { 3.02: "4" }, { 4.02: "3" }],
+          name: 'ivan',
+          data: [{ 1.02: '2' }, { 2.02: '5' }, { 3.02: '4' }, { 4.02: '3' }]
         },
         {
-          name: "vasya",
-          data: [{ 1.02: "2" }, { 2.02: "3" }, { 3.02: "2" }, { 4.02: "4" }],
-        },
-      ],
+          name: 'vasya',
+          data: [{ 1.02: '2' }, { 2.02: '3' }, { 3.02: '2' }, { 4.02: '4' }]
+        }
+      ]
     }
   },
   mounted() {
     this.$hi()
-  },
+  }
 }
 </script>
 
