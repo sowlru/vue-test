@@ -1,8 +1,12 @@
 <template>
+  <!-- 
+    Promise гарантирует что, когда он выполнится - то выполнится и then 
+    then - это регистация обработчика, их может быть больше 1
+  -->
   <div>
     <p>xhr1: {{ xhr1 }}</p>
-    <p>xhr2.name: {{ xhr2 }}</p>
-    <p>xhr3.title: {{ xhr3 }}</p>
+    <p>prm1: {{ prm1 }}</p>
+    <p>xhr2: {{ xhr2 }}</p>
   </div>
 </template>
 <script>
@@ -11,40 +15,44 @@ export default {
   data() {
     return {
       xhr1: '',
-      xhr2: '',
-      xhr3: ''
+      prm1: '',
+      xhr2: ''
     }
   },
   mounted() {
-    this.loadUsers()
-    this.loadUsers2(() => console.log('All loaded!'))
-    this.loadUsers3()
+    this.loadUsersXHR(() => console.log('All loaded!'))
+    this.loadUsersPromise()
+    this.loadPostsXHR()
   },
   methods: {
-    loadUsers() {
-      const request = new XMLHttpRequest()
-      request.open('GET', 'https://jsonplaceholder.typicode.com/users/1')
-      request.addEventListener('readystatechange', () => {
-        if (request.readyState === request.DONE) {
-          const response = JSON.parse(request.responseText)
-          this.xhr1 = response
-        }
-      })
-      request.send()
-    },
-    loadUsers2(cb) {
+    loadUsersXHR(cb) {
       const request = new XMLHttpRequest()
       request.open('GET', 'https://jsonplaceholder.typicode.com/users/')
       request.addEventListener('readystatechange', () => {
-        if (request.readyState === request.DONE) {
-          const response = JSON.parse(request.responseText)
-          this.xhr2 = response.map((x) => x.name)
-        }
-        cb()
+        if (request.readyState !== request.DONE) return
+        if (request.status !== 200) return cb('Something go bad (')
+        const response = JSON.parse(request.responseText)
+        this.xhr1 = response.map((x) => x.name)
       })
+      cb()
       request.send()
     },
-    loadUsers3() {
+    loadUsersPromise() {
+      const p = new Promise((resolve, reject) => {
+        const request = new XMLHttpRequest()
+        request.open('GET', 'https://jsonplaceholder.typicode.com/users/')
+        request.addEventListener('readystatechange', () => {
+          if (request.readyState !== request.DONE) return
+          if (request.status !== 200) return reject('Something go bad (')
+          resolve(JSON.parse(request.responseText))
+        })
+        request.send()
+      })
+      p.then((response) => {
+        this.prm1 = response.map((x) => x.name)
+      })
+    },
+    loadPostsXHR() {
       const request = new XMLHttpRequest()
       request.open('GET', 'https://jsonplaceholder.typicode.com/users/')
       request.addEventListener('readystatechange', () => {
@@ -59,7 +67,7 @@ export default {
         requestPost.addEventListener('readystatechange', () => {
           if (requestPost.readyState !== requestPost.DONE) return
           const posts = JSON.parse(requestPost.responseText)
-          this.xhr3 = posts.map((x) => x.title)
+          this.xhr2 = posts.map((x) => x.title)
         })
         requestPost.send()
       })
