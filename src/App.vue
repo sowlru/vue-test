@@ -2,11 +2,11 @@
   <div class="container">
     <!-- <algorithm-test /> -->
     <!-- <charts-test v-model="data4chart" /> -->
-    <!-- <fabric-test /> -->
-    <promise-test />
+    <fabric-test />
+    <!-- <promise-test /> -->
     <!-- <proxy-test /> -->
     <!-- <svg-test /> -->
-    <!-- <toast-editor /> -->
+    <toast-editor />
 
     <!-- ELEMENT-PLUS -->
     <!-- <table-test /> -->
