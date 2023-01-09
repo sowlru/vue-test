@@ -101,4 +101,17 @@ https://ui.toast.com/tui-image-editor
 .canvas {
   border: 1px solid #eee;
 }
+/* 
+Перезапустить editor при изменении
+  1. C:\elis\editor-> npm run bundle
+  2. cp from editor\dist\tui-image-editor.js to admin\public\toast
+  3. обновить C:\elis\admin
+
+Добавить новую команду в Toast Editor
+  1. add new button: src\js\ui\template\controls.js: <li id="tie-btn-get-json">
+  2. src\js\ui.js: 'getJSON': this._menuElement.querySelector('#tie-btn-get-json')
+  3. src\js\action.js: getJSON: () => { this.getJSON(); },
+  4. src\js\imageEditor.js: getJSON(){ console.log('getJSON') }
+  5. src\js\ui.js: initCanvas() { this._addHelpActionEvent('getJSON') }
+*/
 </style>
