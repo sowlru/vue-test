@@ -36,6 +36,15 @@ export default {
       selectedCities: []
     }
   },
+  mounted() {
+    setTimeout(() => {
+      this.cities = [
+        { city_id: 1, city_name: 'Акташ' },
+        { city_id: 2, city_name: 'Акутиха' },
+        { city_id: 3, city_name: 'Алейск' }
+      ]
+    }, 5000)
+  },
   methods: {
     handleSelectionChange(val) {
       this.selectedCities = val
@@ -53,15 +62,6 @@ export default {
         this.pageSize * this.page
       )
     }
-  },
-  mounted() {
-    setTimeout(() => {
-      this.cities = [
-        { city_id: 1, city_name: 'Акташ' },
-        { city_id: 2, city_name: 'Акутиха' },
-        { city_id: 3, city_name: 'Алейск' }
-      ]
-    }, 5000)
   }
 }
 </script>

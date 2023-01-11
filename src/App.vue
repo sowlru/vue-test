@@ -2,14 +2,15 @@
   <div class="container">
     <!-- <algorithm-test /> -->
     <!-- <charts-test v-model="data4chart" /> -->
-    <fabric-test />
+    <!-- <fabric-test /> -->
+    <!-- <flexbox-test /> -->
     <!-- <promise-test /> -->
     <!-- <proxy-test /> -->
     <!-- <svg-test /> -->
-    <toast-editor />
+    <!-- <toast-editor /> -->
 
     <!-- ELEMENT-PLUS -->
-    <!-- <table-test /> -->
+    <table-test />
   </div>
 </template>
 
@@ -18,6 +19,7 @@
 import algorithmTest from '@/components/algorithmTest'
 import chartsTest from '@/components/chartsTest.vue'
 import fabricTest from '@/components/fabricTest.vue'
+import flexboxTest from '@/components/flexboxTest.vue'
 import promiseTest from '@/components/promiseTest.vue'
 import proxyTest from '@/components/proxyTest.vue'
 import svgTest from '@/components/svgTest.vue'
@@ -30,6 +32,7 @@ export default {
     algorithmTest,
     chartsTest,
     fabricTest,
+    flexboxTest,
     promiseTest,
     proxyTest,
     svgTest,
@@ -58,13 +61,13 @@ export default {
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  /* font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
-  background: darkblue;
+  background: lightgrey; */
 }
 .icon {
   width: 300px;
@@ -75,10 +78,6 @@ export default {
   fill: blue;
 }
 .container {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
   background-color: #eee;
 }
 </style>
