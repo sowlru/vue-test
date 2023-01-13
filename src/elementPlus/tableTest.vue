@@ -1,28 +1,40 @@
 <template>
-  <el-row :gutter="20">
-    <el-col :span="24">
-      <el-table
-        :data="pagedCities"
-        style="width: 100%"
-        row-key="city_id"
-        @selection-change="handleSelectionChange"
-      >
-        <el-table-column
-          type="selection"
-          width="35"
-          :reserve-selection="true"
+  <div class="tableContainer">
+    <el-row :gutter="20">
+      <el-select v-model="vm" placeholder="Выберите тип" clearable>
+        <el-option
+          v-for="item in cityTypes"
+          :key="item.cityTypeId"
+          :label="item.cityTypeName"
+          :value="item.cityTypeName"
         />
-        <el-table-column prop="city_id" label="city_id" width="180" />
-        <el-table-column prop="city_name" label="city_name" width="200" />
-      </el-table>
-      <el-pagination
-        layout="prev, pager, next"
-        :page-size="pageSize"
-        :total="this.cities.length"
-        @current-change="handlePagination"
-      />
-    </el-col>
-  </el-row>
+      </el-select>
+    </el-row>
+    <el-row :gutter="20">
+      <el-col :span="24">
+        <el-table
+          :data="pagedCities"
+          style="width: 100%"
+          row-key="city_id"
+          @selection-change="handleSelectionChange"
+        >
+          <el-table-column
+            type="selection"
+            width="35"
+            :reserve-selection="true"
+          />
+          <el-table-column prop="city_id" label="city_id" width="180" />
+          <el-table-column prop="city_name" label="city_name" width="200" />
+        </el-table>
+        <el-pagination
+          layout="prev, pager, next"
+          :page-size="pageSize"
+          :total="this.cities.length"
+          @current-change="handlePagination"
+        />
+      </el-col>
+    </el-row>
+  </div>
 </template>
 
 <script>
@@ -32,16 +44,23 @@ export default {
     return {
       page: 1,
       pageSize: 2,
-      cities: [], // get from server
-      selectedCities: []
+      cities: [],
+      selectedCities: [],
+
+      // filter list
+      vm: '',
+      cityTypes: [
+        { cityTypeId: 1, cityTypeName: 'big' },
+        { cityTypeId: 2, cityTypeName: 'small' }
+      ]
     }
   },
   mounted() {
     setTimeout(() => {
       this.cities = [
-        { city_id: 1, city_name: 'Акташ' },
-        { city_id: 2, city_name: 'Акутиха' },
-        { city_id: 3, city_name: 'Алейск' }
+        { city_id: 1, city_name: 'Акташ', cityType: 'big' },
+        { city_id: 2, city_name: 'Акутиха', cityType: 'big' },
+        { city_id: 3, city_name: 'Алейск', cityType: 'small' }
       ]
     }, 5000)
   },

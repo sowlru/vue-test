@@ -10,12 +10,16 @@
     <!-- <toast-editor /> -->
 
     <!-- ELEMENT-PLUS -->
-    <table-test />
+    <!-- <table-test /> -->
+    <input-parent />
   </div>
 </template>
 
 <script>
 /* eslint-disable */
+// CHILD-PARENT
+import inputParent from '@/childParent/inputParent'
+// COMPONENTS
 import algorithmTest from '@/components/algorithmTest'
 import chartsTest from '@/components/chartsTest.vue'
 import fabricTest from '@/components/fabricTest.vue'
@@ -29,6 +33,7 @@ import tableTest from '@/elementPlus/tableTest'
 
 export default {
   components: {
+    inputParent,
     algorithmTest,
     chartsTest,
     fabricTest,
