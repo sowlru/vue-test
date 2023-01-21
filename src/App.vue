@@ -1,5 +1,8 @@
 <template>
   <div class="container">
+    <!-- CHILD-PARENT -->
+    <modal-parent />
+
     <!-- <algorithm-test /> -->
     <!-- <charts-test v-model="data4chart" /> -->
     <!-- <fabric-test /> -->
@@ -11,7 +14,6 @@
 
     <!-- ELEMENT-PLUS -->
     <!-- <table-test /> -->
-    <input-parent />
   </div>
 </template>
 
@@ -19,6 +21,7 @@
 /* eslint-disable */
 // CHILD-PARENT
 import inputParent from '@/childParent/inputParent'
+import modalParent from '@/childParent/modalParent'
 // COMPONENTS
 import algorithmTest from '@/components/algorithmTest'
 import chartsTest from '@/components/chartsTest.vue'
@@ -34,6 +37,7 @@ import tableTest from '@/elementPlus/tableTest'
 export default {
   components: {
     inputParent,
+    modalParent,
     algorithmTest,
     chartsTest,
     fabricTest,
