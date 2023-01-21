@@ -18,9 +18,11 @@ export default {
   },
   methods: {
     handleOk() {
-      this.isPopOpen = false
+      console.log('handleOk')
+      this.handleClose()
     },
     handleClose() {
+      console.log('handleClose')
       this.isPopOpen = false
     }
   }

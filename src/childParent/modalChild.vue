@@ -1,15 +1,15 @@
 <template>
-  <div v-if="isOpen" class="backdrop">
-    <div class="popup">
+  <div v-if="isOpen" class="backdrop" @click="close">
+    <div class="popup" @click.stop>
       <h1>modalChild</h1>
       <hr />
       <slot></slot>
       <hr />
       <div class="footer">
-        <slot name="actions" :confirm="confirm" :close="close">
+        <slot name="actions">
           <button @click="this.$emit('ok')">Ok</button>
           &nbsp;
-          <button @click="this.$emit('close')">Отмена</button>
+          <button @click="close">Отмена</button>
         </slot>
       </div>
     </div>
@@ -26,6 +26,11 @@ export default {
   emits: {
     ok: null,
     close: null
+  },
+  methods: {
+    close() {
+      this.$emit('close')
+    }
   }
 }
 </script>
