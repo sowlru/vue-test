@@ -1,7 +1,8 @@
 <template>
   <div class="container">
     <!-- CHILD-PARENT -->
-    <modal-parent />
+    <!-- <input-parent name="alex" />
+    <modal-parent :name="bob" /> -->
 
     <!-- <algorithm-test /> -->
     <!-- <charts-test v-model="data4chart" /> -->
@@ -13,6 +14,7 @@
     <!-- <toast-editor /> -->
 
     <!-- ELEMENT-PLUS -->
+    <dialog-child />
     <!-- <table-test /> -->
   </div>
 </template>
@@ -32,6 +34,7 @@ import proxyTest from '@/components/proxyTest.vue'
 import svgTest from '@/components/svgTest.vue'
 import toastEditor from '@/components/toastEditor.vue'
 // ELEMENT-PLUS
+import dialogChild from '@/elementPlus/dialogChild'
 import tableTest from '@/elementPlus/tableTest'
 
 export default {
@@ -46,6 +49,7 @@ export default {
     proxyTest,
     svgTest,
     toastEditor,
+    dialogChild,
     tableTest
   },
   data() {
@@ -59,7 +63,8 @@ export default {
           name: 'vasya',
           data: [{ 1.02: '2' }, { 2.02: '3' }, { 3.02: '2' }, { 4.02: '4' }]
         }
-      ]
+      ],
+      bob: 'big bob'
     }
   },
   mounted() {

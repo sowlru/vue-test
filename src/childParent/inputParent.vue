@@ -2,6 +2,7 @@
   <div class="cont">
     <p>inputParent : myData : {{ myData }}</p>
     <input-child v-model="myData" />
+    <p>App : name : {{ name }}</p>
   </div>
 </template>
 <script>
@@ -15,6 +16,7 @@ export default {
     return {
       myData: 'a'
     }
-  }
+  },
+  props: ['name']
 }
 </script>

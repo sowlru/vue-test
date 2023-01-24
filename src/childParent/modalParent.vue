@@ -4,6 +4,7 @@
     <modal-child :isOpen="isPopOpen" @ok="handleOk" @close="handleClose">
       Are you sure?
     </modal-child>
+    <p>App : name : {{ name }}</p>
   </div>
 </template>
 <script>
@@ -25,6 +26,7 @@ export default {
       console.log('handleClose')
       this.isPopOpen = false
     }
-  }
+  },
+  props: ['name']
 }
 </script>
