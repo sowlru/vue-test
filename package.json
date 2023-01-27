@@ -15,7 +15,9 @@
     "fabric": "^5.3.0",
     "tui-image-editor": "^3.15.3",
     "vue": "^3.2.13",
-    "vue-echart": "^1.0.5"
+    "vue-echart": "^1.0.5",
+    "vue-flag-icon": "^2.1.0",
+    "vue-i18n": "^9.2.2"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",

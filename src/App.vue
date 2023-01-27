@@ -1,20 +1,22 @@
 <template>
   <div class="container">
     <!-- CHILD-PARENT -->
-    <!-- <input-parent name="alex" />
-    <modal-parent :name="bob" /> -->
+    <!-- <input-parent name="alex" /> -->
+    <!-- <modal-parent :name="bob" /> -->
 
+    <!-- COMPONENTS -->
     <!-- <algorithm-test /> -->
     <!-- <charts-test v-model="data4chart" /> -->
     <!-- <fabric-test /> -->
     <!-- <flexbox-test /> -->
+    <i18n-test />
     <!-- <promise-test /> -->
     <!-- <proxy-test /> -->
     <!-- <svg-test /> -->
     <!-- <toast-editor /> -->
 
     <!-- ELEMENT-PLUS -->
-    <dialog-child />
+    <!-- <dialog-child /> -->
     <!-- <table-test /> -->
   </div>
 </template>
@@ -37,6 +39,8 @@ import toastEditor from '@/components/toastEditor.vue'
 import dialogChild from '@/elementPlus/dialogChild'
 import tableTest from '@/elementPlus/tableTest'
 
+import i18nTest from '@/i18n/i18nTest.vue'
+
 export default {
   components: {
     inputParent,
@@ -50,7 +54,8 @@ export default {
     svgTest,
     toastEditor,
     dialogChild,
-    tableTest
+    tableTest,
+    i18nTest
   },
   data() {
     return {
