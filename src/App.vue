@@ -7,9 +7,8 @@
     <!-- COMPONENTS -->
     <!-- <algorithm-test /> -->
     <!-- <charts-test v-model="data4chart" /> -->
-    <!-- <fabric-test /> -->
     <!-- <flexbox-test /> -->
-    <i18n-test />
+    <!-- <i18n-test /> -->
     <!-- <promise-test /> -->
     <!-- <proxy-test /> -->
     <!-- <svg-test /> -->
@@ -18,6 +17,10 @@
     <!-- ELEMENT-PLUS -->
     <!-- <dialog-child /> -->
     <!-- <table-test /> -->
+
+    <!-- GRAPHICS -->
+    <canvas-test />
+    <!-- <fabric-test /> -->
   </div>
 </template>
 
@@ -29,7 +32,6 @@ import modalParent from '@/childParent/modalParent'
 // COMPONENTS
 import algorithmTest from '@/components/algorithmTest'
 import chartsTest from '@/components/chartsTest.vue'
-import fabricTest from '@/components/fabricTest.vue'
 import flexboxTest from '@/components/flexboxTest.vue'
 import promiseTest from '@/components/promiseTest.vue'
 import proxyTest from '@/components/proxyTest.vue'
@@ -38,6 +40,9 @@ import toastEditor from '@/components/toastEditor.vue'
 // ELEMENT-PLUS
 import dialogChild from '@/elementPlus/dialogChild'
 import tableTest from '@/elementPlus/tableTest'
+// GRAPHICS
+import canvasTest from '@/graphics/canvasTest.vue'
+import fabricTest from '@/graphics/fabricTest.vue'
 
 import i18nTest from '@/i18n/i18nTest.vue'
 
@@ -55,6 +60,9 @@ export default {
     toastEditor,
     dialogChild,
     tableTest,
+
+    canvasTest,
+
     i18nTest
   },
   data() {
