@@ -8,7 +8,6 @@
     <!-- <algorithm-test /> -->
     <!-- <charts-test v-model="data4chart" /> -->
     <!-- <flexbox-test /> -->
-    <!-- <i18n-test /> -->
     <!-- <promise-test /> -->
     <!-- <proxy-test /> -->
     <!-- <svg-test /> -->
@@ -19,8 +18,10 @@
     <!-- <table-test /> -->
 
     <!-- GRAPHICS -->
-    <canvas-test />
+    <!-- <canvas-test /> -->
     <!-- <fabric-test /> -->
+
+    <i18n-test />
   </div>
 </template>
 

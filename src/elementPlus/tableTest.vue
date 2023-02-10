@@ -24,7 +24,7 @@
             :reserve-selection="true"
           />
           <el-table-column prop="city_id" label="city_id" width="180" />
-          <el-table-column prop="city_name" label="city_name" width="200" />
+          <el-table-column :prop="c" label="city_name" width="200" />
         </el-table>
         <el-pagination
           layout="prev, pager, next"
@@ -58,9 +58,24 @@ export default {
   mounted() {
     setTimeout(() => {
       this.cities = [
-        { city_id: 1, city_name: 'Акташ', cityType: 'big' },
-        { city_id: 2, city_name: 'Акутиха', cityType: 'big' },
-        { city_id: 3, city_name: 'Алейск', cityType: 'small' }
+        {
+          city_id: 1,
+          city_name: 'Акташ',
+          city_name_en: 'Aktash',
+          cityType: 'big'
+        },
+        {
+          city_id: 2,
+          city_name: 'Акутиха',
+          city_name_en: 'Akutiha',
+          cityType: 'big'
+        },
+        {
+          city_id: 3,
+          city_name: 'Алейск',
+          city_name_en: 'Aleisk',
+          cityType: 'small'
+        }
       ]
     }, 5000)
   },
@@ -80,6 +95,9 @@ export default {
         this.pageSize * this.page - this.pageSize,
         this.pageSize * this.page
       )
+    },
+    c() {
+      return 'city_name_en'
     }
   }
 }
