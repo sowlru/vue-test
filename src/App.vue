@@ -21,7 +21,8 @@
     <!-- <canvas-test /> -->
     <!-- <fabric-test /> -->
 
-    <i18n-test />
+    <!-- <i18n-test /> -->
+    <store-test />
   </div>
 </template>
 
@@ -46,6 +47,7 @@ import canvasTest from '@/graphics/canvasTest.vue'
 import fabricTest from '@/graphics/fabricTest.vue'
 
 import i18nTest from '@/i18n/i18nTest.vue'
+import storeTest from '@/store/storeTest.vue'
 
 export default {
   components: {
@@ -64,7 +66,8 @@ export default {
 
     canvasTest,
 
-    i18nTest
+    i18nTest,
+    storeTest
   },
   data() {
     return {

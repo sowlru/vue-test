@@ -17,7 +17,8 @@
     "vue": "^3.2.13",
     "vue-echart": "^1.0.5",
     "vue-flag-icon": "^2.1.0",
-    "vue-i18n": "^9.2.2"
+    "vue-i18n": "^9.2.2",
+    "vuex": "^4.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
