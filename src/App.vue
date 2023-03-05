@@ -19,9 +19,10 @@
     <!-- GRAPHICS -->
     <!-- <canvas-test /> -->
     <!-- <fabric-test /> -->
-    <svg-test />
+    <!-- <svg-test /> -->
 
     <!-- <i18n-test /> -->
+    <jest-test />
     <!-- <store-test /> -->
   </div>
 </template>
@@ -47,6 +48,7 @@ import fabricTest from '@/graphics/fabricTest.vue'
 import svgTest from '@/graphics/svgTest.vue'
 
 import i18nTest from '@/i18n/i18nTest.vue'
+import jestTest from '@/jest/jestTest.vue'
 import storeTest from '@/store/storeTest.vue'
 
 export default {
@@ -67,6 +69,7 @@ export default {
     svgTest,
 
     i18nTest,
+    jestTest,
     storeTest
   },
   data() {
@@ -91,15 +94,6 @@ export default {
 </script>
 
 <style>
-#app {
-  /* font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-  background: lightgrey; */
-}
 .icon {
   width: 300px;
   fill: red;
