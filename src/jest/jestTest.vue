@@ -1,5 +1,5 @@
 <template>
-  <div class="jest">
+  <div id="jest">
     {{ cnt }}
     <button @click="cnt -= 1">-</button>
     <button @click="cnt += 1">+</button>
@@ -8,10 +8,10 @@
 <script>
 export default {
   data() {
-    return { cnt: 1 }
+    return { cnt: 0 }
   }
 }
-// 1. npm install -D jest
+// 1. npm install -D jest@27
 // 2. npm i @vue/cli-plugin-unit-jest
 // 3. xxx.spec.js:
 // describe('TEST', () => {
