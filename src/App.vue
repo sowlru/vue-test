@@ -18,11 +18,12 @@
 
     <!-- GRAPHICS -->
     <!-- <canvas-test /> -->
+    <ck-Editor />
     <!-- <fabric-test /> -->
     <!-- <svg-test /> -->
 
     <!-- <i18n-test /> -->
-    <jest-test />
+    <!-- <jest-test /> -->
     <!-- <store-test /> -->
   </div>
 </template>
@@ -44,6 +45,7 @@ import dialogChild from '@/elementPlus/dialogChild'
 import tableTest from '@/elementPlus/tableTest'
 // GRAPHICS
 import canvasTest from '@/graphics/canvasTest.vue'
+import ckEditor from '@/graphics/ckEditor.vue'
 import fabricTest from '@/graphics/fabricTest.vue'
 import svgTest from '@/graphics/svgTest.vue'
 
@@ -65,6 +67,7 @@ export default {
     tableTest,
 
     canvasTest,
+    ckEditor,
     fabricTest,
     svgTest,
 
