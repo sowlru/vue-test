@@ -10,17 +10,18 @@
     <!-- <flexbox-test /> -->
     <!-- <promise-test /> -->
     <!-- <proxy-test /> -->
-    <!-- <toast-editor /> -->
 
     <!-- ELEMENT-PLUS -->
     <!-- <dialog-child /> -->
     <!-- <table-test /> -->
 
-    <!-- GRAPHICS -->
-    <!-- <canvas-test /> -->
-    <ck-Editor />
-    <!-- <fabric-test /> -->
-    <!-- <svg-test /> -->
+    <div class="GRAPHICS">
+      <!-- <canvas-test /> -->
+      <!-- <ckEditorCDN msg="app" /> -->
+      <!-- <fabric-test /> -->
+      <!-- <svg-test /> -->
+      <toast-editor />
+    </div>
 
     <!-- <i18n-test /> -->
     <!-- <jest-test /> -->
@@ -39,15 +40,15 @@ import chartsTest from '@/components/chartsTest.vue'
 import flexboxTest from '@/components/flexboxTest.vue'
 import promiseTest from '@/components/promiseTest.vue'
 import proxyTest from '@/components/proxyTest.vue'
-import toastEditor from '@/components/toastEditor.vue'
 // ELEMENT-PLUS
 import dialogChild from '@/elementPlus/dialogChild'
 import tableTest from '@/elementPlus/tableTest'
 // GRAPHICS
 import canvasTest from '@/graphics/canvasTest.vue'
-import ckEditor from '@/graphics/ckEditor.vue'
+import ckEditorCDN from '@/graphics/ckEditorCDN.vue'
 import fabricTest from '@/graphics/fabricTest.vue'
 import svgTest from '@/graphics/svgTest.vue'
+import toastEditor from '@/graphics/toastEditor.vue'
 
 import i18nTest from '@/i18n/i18nTest.vue'
 import jestTest from '@/jest/jestTest.vue'
@@ -67,7 +68,7 @@ export default {
     tableTest,
 
     canvasTest,
-    ckEditor,
+    ckEditorCDN,
     fabricTest,
     svgTest,
 
