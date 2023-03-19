@@ -17,10 +17,12 @@
 
     <div class="GRAPHICS">
       <!-- <canvas-test /> -->
-      <!-- <ckEditorCDN msg="app" /> -->
+      <!-- <ckEditorCDN :msg="data4chart[0].name" /> -->
+      <!-- <ckEditorCustom msg="from App" /> -->
+      <ckEditorNPM msg="from App" />
       <!-- <fabric-test /> -->
       <!-- <svg-test /> -->
-      <toast-editor />
+      <!-- <toast-editor /> -->
     </div>
 
     <!-- <i18n-test /> -->
@@ -32,49 +34,55 @@
 <script>
 /* eslint-disable */
 // CHILD-PARENT
-import inputParent from '@/childParent/inputParent'
-import modalParent from '@/childParent/modalParent'
+// import inputParent from '@/childParent/inputParent'
+// import modalParent from '@/childParent/modalParent'
 // COMPONENTS
-import algorithmTest from '@/components/algorithmTest'
-import chartsTest from '@/components/chartsTest.vue'
-import flexboxTest from '@/components/flexboxTest.vue'
-import promiseTest from '@/components/promiseTest.vue'
-import proxyTest from '@/components/proxyTest.vue'
+// import algorithmTest from '@/components/algorithmTest'
+// import chartsTest from '@/components/chartsTest.vue'
+// import flexboxTest from '@/components/flexboxTest.vue'
+// import promiseTest from '@/components/promiseTest.vue'
+// import proxyTest from '@/components/proxyTest.vue'
 // ELEMENT-PLUS
-import dialogChild from '@/elementPlus/dialogChild'
-import tableTest from '@/elementPlus/tableTest'
+// import dialogChild from '@/elementPlus/dialogChild'
+// import tableTest from '@/elementPlus/tableTest'
 // GRAPHICS
-import canvasTest from '@/graphics/canvasTest.vue'
+// import canvasTest from '@/graphics/canvasTest.vue'
 import ckEditorCDN from '@/graphics/ckEditorCDN.vue'
-import fabricTest from '@/graphics/fabricTest.vue'
-import svgTest from '@/graphics/svgTest.vue'
-import toastEditor from '@/graphics/toastEditor.vue'
+import ckEditorCustom from '@/graphics/ckEditorCustom.vue'
+import ckEditorNPM from '@/graphics/ckEditorNPM.vue'
+// import fabricTest from '@/graphics/fabricTest.vue'
+// import svgTest from '@/graphics/svgTest.vue'
+// import toastEditor from '@/graphics/toastEditor.vue'
 
-import i18nTest from '@/i18n/i18nTest.vue'
-import jestTest from '@/jest/jestTest.vue'
-import storeTest from '@/store/storeTest.vue'
+// import i18nTest from '@/i18n/i18nTest.vue'
+// import jestTest from '@/jest/jestTest.vue'
+// import storeTest from '@/store/storeTest.vue'
 
 export default {
   components: {
-    inputParent,
-    modalParent,
-    algorithmTest,
-    chartsTest,
-    flexboxTest,
-    promiseTest,
-    proxyTest,
-    toastEditor,
-    dialogChild,
-    tableTest,
+    // inputParent,
+    // modalParent,
 
-    canvasTest,
+    // algorithmTest,
+    // chartsTest,
+    // flexboxTest,
+    // promiseTest,
+    // proxyTest,
+
+    // dialogChild,
+    // tableTest,
+
+    // canvasTest,
     ckEditorCDN,
-    fabricTest,
-    svgTest,
+    ckEditorCustom,
+    ckEditorNPM
+    // fabricTest,
+    // svgTest,
+    // toastEditor,
 
-    i18nTest,
-    jestTest,
-    storeTest
+    // i18nTest,
+    // jestTest,
+    // storeTest
   },
   data() {
     return {

@@ -1,9 +1,26 @@
 <template>
-  <div id="ckEditor"></div>
+  <div class="ckEditorCDN">
+    <p>Подключить библиотеку: public/index.html:</p>
+    <ol>
+      <li>
+        script
+        src="https://cdn.ckeditor.com/ckeditor5/36.0.1/super-build/ckeditor.js"
+      </li>
+    </ol>
+    <div id="ckEditor">
+      {{ msg }}
+      <ck-editor id="ckEditor" />
+    </div>
+  </div>
 </template>
 <script>
 export default {
-  props: ['msg'],
+  props: {
+    msg: {
+      type: String,
+      default: ''
+    }
+  },
   data() {
     return {
       editor: null,
@@ -11,7 +28,7 @@ export default {
     }
   },
   mounted() {
-    console.log('mounted', this.msg)
+    console.log('mounted CKEDITOR:', CKEDITOR)
     this.text = this.msg
     this.initEditor()
   },
@@ -263,5 +280,4 @@ export default {
     }
   }
 }
-// 1. index.html: script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/super-build/ckeditor.js"
 </script>

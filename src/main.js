@@ -16,7 +16,7 @@ const i18n = createI18n({
   fallbackLocale: 'ru',
   messages
 })
-console.log('main.js', i18n)
+console.log('main.js : i18n', i18n)
 
 const app = createApp(App)
 app.use(ElementPlus)
