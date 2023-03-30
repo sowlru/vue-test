@@ -1,16 +1,6 @@
 <template>
   <div class="tableContainer">
     <el-row :gutter="20">
-      <el-select v-model="vm" placeholder="Выберите тип" clearable>
-        <el-option
-          v-for="item in cityTypes"
-          :key="item.cityTypeId"
-          :label="item.cityTypeName"
-          :value="item.cityTypeName"
-        />
-      </el-select>
-    </el-row>
-    <el-row :gutter="20">
       <el-col :span="24">
         <el-table
           :data="pagedCities"
@@ -34,6 +24,26 @@
         />
       </el-col>
     </el-row>
+    <el-row :gutter="20">
+      <el-select v-model="vm" placeholder="Выберите тип" clearable>
+        <el-option
+          v-for="item in cityTypes"
+          :key="item.cityTypeId"
+          :label="item.cityTypeName"
+          :value="item.cityTypeName"
+        />
+      </el-select>
+    </el-row>
+    <el-row :gutter="20">
+      <el-select-v2
+        v-model="vm"
+        filterable
+        :options="options"
+        placeholder="Please select"
+        style="width: 240px"
+        multiple
+      />
+    </el-row>
   </div>
 </template>
 
@@ -52,6 +62,10 @@ export default {
       cityTypes: [
         { cityTypeId: 1, cityTypeName: 'big' },
         { cityTypeId: 2, cityTypeName: 'small' }
+      ],
+      options: [
+        { value: 1, label: 'a' },
+        { value: 2, label: 'b' }
       ]
     }
   },

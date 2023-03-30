@@ -13,13 +13,13 @@
 
     <!-- ELEMENT-PLUS -->
     <!-- <dialog-child /> -->
-    <!-- <table-test /> -->
+    <table-test />
 
     <div class="GRAPHICS">
       <!-- <canvas-test /> -->
       <!-- <ckEditorCDN :msg="data4chart[0].name" /> -->
       <!-- <ckEditorCustom msg="from App" /> -->
-      <ckEditorNPM msg="from App" />
+      <!-- <ckEditorNPM msg="from App" /> -->
       <!-- <fabric-test /> -->
       <!-- <svg-test /> -->
       <!-- <toast-editor /> -->
@@ -43,8 +43,8 @@
 // import promiseTest from '@/components/promiseTest.vue'
 // import proxyTest from '@/components/proxyTest.vue'
 // ELEMENT-PLUS
-// import dialogChild from '@/elementPlus/dialogChild'
-// import tableTest from '@/elementPlus/tableTest'
+import dialogChild from '@/elementPlus/dialogChild'
+import tableTest from '@/elementPlus/tableTest'
 // GRAPHICS
 // import canvasTest from '@/graphics/canvasTest.vue'
 import ckEditorCDN from '@/graphics/ckEditorCDN.vue'
@@ -69,8 +69,8 @@ export default {
     // promiseTest,
     // proxyTest,
 
-    // dialogChild,
-    // tableTest,
+    dialogChild,
+    tableTest,
 
     // canvasTest,
     ckEditorCDN,
