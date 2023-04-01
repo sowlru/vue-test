@@ -24,6 +24,7 @@ export default {
     this.getXHR()
     this.getPromise()
     this.getFetch()
+    this.testPromise1()
   },
   methods: {
     req() {
@@ -67,20 +68,19 @@ export default {
       const c = b.then((res) => {
         this.fth1 = res.map((x) => x.name)
       })
+    },
+    // a = Promise fulfilled 1 3 2
+    // 1 3 2
+    testPromise1() {
+      let s = '1 '
+      let a = new Promise(function (res, rej) {
+        setTimeout(() => {
+          res((s += '2 '))
+        }, 1000)
+      })
+      a.then(console.log)
+      s += '3 '
     }
   }
 }
-
-/* promis() {
-      let a = 7
-      console.log("a", a)
-      let b = new Promise(function (a, b) {
-        setTimeout(() => {
-          a((a = 9))
-        }, 2000)
-      })
-      b.then(console.log)
-      console.log("b", b)
-    },
-  */
 </script>
