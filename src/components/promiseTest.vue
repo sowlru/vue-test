@@ -8,6 +8,7 @@
     <p>promise: {{ prm1 }}</p>
     <p>fetch: {{ fth1 }}</p>
     <p>async: {{ asn1 }}</p>
+    <p>async_err: {{ ase1 }}</p>
   </div>
 </template>
 <script>
@@ -16,9 +17,11 @@ export default {
   data() {
     return {
       url: 'https://jsonplaceholder.typicode.com/users/',
+      wrong_url: 'https://jsonplaceholder.typicode.com/uses/',
       xhr1: '',
       prm1: '',
       asn1: '',
+      ase1: '',
       fth1: ''
     }
   },
@@ -27,6 +30,7 @@ export default {
     this.getPromise()
     this.getFetch()
     this.getAsync()
+    this.getAsyncErr()
     this.testPromise1()
   },
   methods: {
@@ -72,12 +76,21 @@ export default {
         this.fth1 = res.map((x) => x.name)
       })
     },
-    // a = Response { status: 200, ...}
-    // b = Array(10)
+    // res = Response { status: 200, ...}
+    // data = Array(10)
     async getAsync() {
-      const a = await fetch(this.url)
-      const b = await a.json()
-      this.asn1 = b.map((x) => x.name)
+      const res = await fetch(this.url)
+      const data = await res.json()
+      this.asn1 = data.map((x) => x.name)
+    },
+    async getAsyncErr() {
+      try {
+        const res = await fetch(this.wrong_url)
+        const data = await res.json()
+        this.ase1 = data.map((x) => x.name)
+      } catch (err) {
+        this.ase1 = err
+      }
     },
     // a = Promise fulfilled 1 3 2
     // 1 3 2
