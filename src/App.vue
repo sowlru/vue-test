@@ -8,12 +8,12 @@
     <!-- <algorithm-test /> -->
     <!-- <charts-test v-model="data4chart" /> -->
     <!-- <flexbox-test /> -->
-    <!-- <promise-test /> -->
+    <promise-test />
     <!-- <proxy-test /> -->
 
     <!-- ELEMENT-PLUS -->
     <!-- <dialog-child /> -->
-    <table-test />
+    <!-- <table-test /> -->
 
     <div class="GRAPHICS">
       <!-- <canvas-test /> -->
@@ -40,7 +40,7 @@
 // import algorithmTest from '@/components/algorithmTest'
 // import chartsTest from '@/components/chartsTest.vue'
 // import flexboxTest from '@/components/flexboxTest.vue'
-// import promiseTest from '@/components/promiseTest.vue'
+import promiseTest from '@/components/promiseTest.vue'
 // import proxyTest from '@/components/proxyTest.vue'
 // ELEMENT-PLUS
 import dialogChild from '@/elementPlus/dialogChild'
@@ -66,7 +66,7 @@ export default {
     // algorithmTest,
     // chartsTest,
     // flexboxTest,
-    // promiseTest,
+    promiseTest,
     // proxyTest,
 
     dialogChild,

@@ -4,9 +4,9 @@
     then - это регистация обработчика, их может быть больше 1
   -->
   <div>
-    <p>xhr1: {{ xhr1 }}</p>
-    <p>prm1: {{ prm1 }}</p>
-    <p>xhr2: {{ xhr2 }}</p>
+    <p>xhr: {{ xhr1 }}</p>
+    <p>promise: {{ prm1 }}</p>
+    <p>fetch: {{ fth1 }}</p>
   </div>
 </template>
 <script>
@@ -14,64 +14,59 @@
 export default {
   data() {
     return {
+      url: 'https://jsonplaceholder.typicode.com/users/',
       xhr1: '',
       prm1: '',
-      xhr2: ''
+      fth1: ''
     }
   },
   mounted() {
-    this.loadUsersXHR(() => console.log('All loaded!'))
-    this.loadUsersPromise()
-    this.loadPostsXHR()
+    this.getXHR()
+    this.getPromise()
+    this.getFetch()
   },
   methods: {
-    loadUsersXHR(cb) {
+    req() {
       const request = new XMLHttpRequest()
-      request.open('GET', 'https://jsonplaceholder.typicode.com/users/')
-      request.addEventListener('readystatechange', () => {
-        if (request.readyState !== request.DONE) return
-        if (request.status !== 200) return cb('Something go bad (')
-        const response = JSON.parse(request.responseText)
-        this.xhr1 = response.map((x) => x.name)
-      })
-      cb()
-      request.send()
+      request.open('GET', this.url)
+      return request
     },
-    loadUsersPromise() {
-      const p = new Promise((resolve, reject) => {
-        const request = new XMLHttpRequest()
-        request.open('GET', 'https://jsonplaceholder.typicode.com/users/')
-        request.addEventListener('readystatechange', () => {
-          if (request.readyState !== request.DONE) return
-          if (request.status !== 200) return reject('Something go bad (')
-          resolve(JSON.parse(request.responseText))
-        })
-        request.send()
+    getXHR(cb) {
+      let x = this.req()
+      x.addEventListener('readystatechange', () => {
+        if (x.readyState !== x.DONE) return
+        if (x.status !== 200) return cb('Something go bad (')
+        const res = JSON.parse(x.responseText)
+        this.xhr1 = res.map((x) => x.name)
       })
-      p.then((response) => {
-        this.prm1 = response.map((x) => x.name)
+      x.send()
+    },
+    // a = Promise fulfilled Array(10)
+    // b = Promise fulfilled undefined
+    getPromise() {
+      const a = new Promise((resolve, reject) => {
+        let x = this.req()
+        x.addEventListener('readystatechange', () => {
+          if (x.readyState !== x.DONE) return
+          if (x.status !== 200) return reject('Something go bad (')
+          const res = JSON.parse(x.responseText)
+          resolve(res)
+        })
+        x.send()
+      })
+      const b = a.then((res) => {
+        this.prm1 = res.map((x) => x.name)
       })
     },
-    loadPostsXHR() {
-      const request = new XMLHttpRequest()
-      request.open('GET', 'https://jsonplaceholder.typicode.com/users/')
-      request.addEventListener('readystatechange', () => {
-        if (request.readyState !== request.DONE) return
-        const [{ id }] = JSON.parse(request.responseText)
-
-        const requestPost = new XMLHttpRequest()
-        requestPost.open(
-          'GET',
-          `https://jsonplaceholder.typicode.com/posts?userId=${id}`
-        )
-        requestPost.addEventListener('readystatechange', () => {
-          if (requestPost.readyState !== requestPost.DONE) return
-          const posts = JSON.parse(requestPost.responseText)
-          this.xhr2 = posts.map((x) => x.title)
-        })
-        requestPost.send()
+    // a = Promise fulfilled Response
+    // b = Promise fulfilled Array(10)
+    // c = Promise fulfilled undefined
+    getFetch() {
+      const a = fetch(this.url)
+      const b = a.then((res) => res.json())
+      const c = b.then((res) => {
+        this.fth1 = res.map((x) => x.name)
       })
-      request.send()
     }
   }
 }
