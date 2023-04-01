@@ -7,6 +7,7 @@
     <p>xhr: {{ xhr1 }}</p>
     <p>promise: {{ prm1 }}</p>
     <p>fetch: {{ fth1 }}</p>
+    <p>async: {{ asn1 }}</p>
   </div>
 </template>
 <script>
@@ -17,6 +18,7 @@ export default {
       url: 'https://jsonplaceholder.typicode.com/users/',
       xhr1: '',
       prm1: '',
+      asn1: '',
       fth1: ''
     }
   },
@@ -24,6 +26,7 @@ export default {
     this.getXHR()
     this.getPromise()
     this.getFetch()
+    this.getAsync()
     this.testPromise1()
   },
   methods: {
@@ -68,6 +71,13 @@ export default {
       const c = b.then((res) => {
         this.fth1 = res.map((x) => x.name)
       })
+    },
+    // a = Response { status: 200, ...}
+    // b = Array(10)
+    async getAsync() {
+      const a = await fetch(this.url)
+      const b = await a.json()
+      this.asn1 = b.map((x) => x.name)
     },
     // a = Promise fulfilled 1 3 2
     // 1 3 2
