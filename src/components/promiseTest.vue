@@ -9,9 +9,12 @@
     <p>fetch: {{ fth1 }}</p>
     <p>async: {{ asn1 }}</p>
     <p>async_err: {{ ase1 }}</p>
+    <p>axios: {{ axs1 }}</p>
+    <p>axios_err: {{ axe1 }}</p>
   </div>
 </template>
 <script>
+import axios from 'axios'
 /* eslint-disable */
 export default {
   data() {
@@ -20,9 +23,11 @@ export default {
       wrong_url: 'https://jsonplaceholder.typicode.com/uses/',
       xhr1: '',
       prm1: '',
+      fth1: '',
       asn1: '',
-      ase1: '',
-      fth1: ''
+      axs1: '',
+      axe1: '',
+      ase1: ''
     }
   },
   mounted() {
@@ -31,6 +36,8 @@ export default {
     this.getFetch()
     this.getAsync()
     this.getAsyncErr()
+    this.getAxios()
+    this.getAxiosErr()
     this.testPromise1()
   },
   methods: {
@@ -76,7 +83,7 @@ export default {
         this.fth1 = res.map((x) => x.name)
       })
     },
-    // res = Response { status: 200, ...}
+    // res = Response {type: 'cors', url:...
     // data = Array(10)
     async getAsync() {
       const res = await fetch(this.url)
@@ -91,6 +98,23 @@ export default {
       } catch (err) {
         this.ase1 = err
       }
+    },
+    // npm install axios
+    // res = {data: Array(10), status: 200,...
+    async getAxios() {
+      axios.defaults.baseURL = this.url
+      const res = await axios()
+      this.axs1 = res.data.map((x) => x.name)
+    },
+    async getAxiosErr() {
+      axios.interceptors.response.use(undefined, (err) => {
+        if (err.response.status === 404) {
+          this.axe1 = 'eror 404'
+        } else {
+          this.axe1 = 'error not 404'
+        }
+      })
+      const res = await axios(this.wrong_url)
     },
     // a = Promise fulfilled 1 3 2
     // 1 3 2
