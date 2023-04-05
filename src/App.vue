@@ -8,7 +8,7 @@
     <!-- <algorithm-test /> -->
     <!-- <charts-test v-model="data4chart" /> -->
     <!-- <flexbox-test /> -->
-    <promise-test />
+    <!-- <promise-test /> -->
     <!-- <proxy-test /> -->
 
     <!-- ELEMENT-PLUS -->
@@ -27,6 +27,7 @@
 
     <!-- <i18n-test /> -->
     <!-- <jest-test /> -->
+    <layout-test />
     <!-- <store-test /> -->
   </div>
 </template>
@@ -54,9 +55,10 @@ import ckEditorNPM from '@/graphics/ckEditorNPM.vue'
 // import svgTest from '@/graphics/svgTest.vue'
 // import toastEditor from '@/graphics/toastEditor.vue'
 
-// import i18nTest from '@/i18n/i18nTest.vue'
-// import jestTest from '@/jest/jestTest.vue'
-// import storeTest from '@/store/storeTest.vue'
+import i18nTest from '@/i18n/i18nTest.vue'
+import jestTest from '@/jest/jestTest.vue'
+import layoutTest from '@/layouts/layoutTest.vue'
+import storeTest from '@/store/storeTest.vue'
 
 export default {
   components: {
@@ -75,14 +77,15 @@ export default {
     // canvasTest,
     ckEditorCDN,
     ckEditorCustom,
-    ckEditorNPM
+    ckEditorNPM,
     // fabricTest,
     // svgTest,
     // toastEditor,
 
-    // i18nTest,
-    // jestTest,
-    // storeTest
+    i18nTest,
+    jestTest,
+    layoutTest,
+    storeTest
   },
   data() {
     return {
