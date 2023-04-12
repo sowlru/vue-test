@@ -1,12 +1,15 @@
 <template>
   <div class="default">
-    <navbar />
-    <main class="main">Default</main>
+    <the-navbar />
+    <router-view />
   </div>
 </template>
 <script>
-import Navbar from '@/layouts/TheNavbar'
+import TheNavbar from '@/layouts/TheNavbar'
 export default {
-  components: { Navbar }
+  mounted() {
+    console.log('Default')
+  },
+  components: { TheNavbar }
 }
 </script>

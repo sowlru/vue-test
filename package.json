@@ -25,6 +25,7 @@
     "vue-echart": "^1.0.5",
     "vue-flag-icon": "^2.1.0",
     "vue-i18n": "^9.2.2",
+    "vue-router": "^4.1.6",
     "vuex": "^4.0.2"
   },
   "devDependencies": {
@@ -40,6 +41,7 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "jest": "^27.5.1",
-    "prettier": "^2.4.1"
+    "prettier": "^2.4.1",
+    "typescript": "^5.0.3"
   }
 }
