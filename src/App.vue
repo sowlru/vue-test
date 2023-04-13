@@ -14,6 +14,7 @@
     <!-- ELEMENT-PLUS -->
     <!-- <dialog-child /> -->
     <!-- <table-test /> -->
+    <tree-test />
 
     <div class="GRAPHICS">
       <!-- <canvas-test /> -->
@@ -27,7 +28,7 @@
 
     <!-- <i18n-test /> -->
     <!-- <jest-test /> -->
-    <layout-test />
+    <!-- <layout-test /> -->
     <!-- <store-test /> -->
   </div>
 </template>
@@ -35,17 +36,18 @@
 <script>
 /* eslint-disable */
 // CHILD-PARENT
-// import inputParent from '@/childParent/inputParent'
-// import modalParent from '@/childParent/modalParent'
+import inputParent from '@/childParent/inputParent'
+import modalParent from '@/childParent/modalParent'
 // COMPONENTS
-// import algorithmTest from '@/components/algorithmTest'
-// import chartsTest from '@/components/chartsTest.vue'
-// import flexboxTest from '@/components/flexboxTest.vue'
+import algorithmTest from '@/components/algorithmTest'
+import chartsTest from '@/components/chartsTest.vue'
+import flexboxTest from '@/components/flexboxTest.vue'
 import promiseTest from '@/components/promiseTest.vue'
-// import proxyTest from '@/components/proxyTest.vue'
+import proxyTest from '@/components/proxyTest.vue'
 // ELEMENT-PLUS
 import dialogChild from '@/elementPlus/dialogChild'
 import tableTest from '@/elementPlus/tableTest'
+import treeTest from '@/elementPlus/treeTest'
 // GRAPHICS
 // import canvasTest from '@/graphics/canvasTest.vue'
 import ckEditorCDN from '@/graphics/ckEditorCDN.vue'
@@ -62,17 +64,18 @@ import storeTest from '@/store/storeTest.vue'
 
 export default {
   components: {
-    // inputParent,
-    // modalParent,
+    inputParent,
+    modalParent,
 
-    // algorithmTest,
-    // chartsTest,
-    // flexboxTest,
+    algorithmTest,
+    chartsTest,
+    flexboxTest,
     promiseTest,
-    // proxyTest,
+    proxyTest,
 
     dialogChild,
     tableTest,
+    treeTest,
 
     // canvasTest,
     ckEditorCDN,
