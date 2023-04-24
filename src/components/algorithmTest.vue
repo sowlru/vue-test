@@ -29,22 +29,22 @@ export default {
   },
   computed: {
     getTree() {
-      let sum = 0
+      let res = 0
       let stack = []
       this.tree.forEach((node) => stack.push(node))
       while (stack.length) {
         console.log('stack', stack)
         let node = stack.pop()
         console.log('node', node)
-        sum += node.v
-        console.log('sum', sum)
+        res += node.v
+        console.log('res', res)
         if (node.a) {
           node.a.forEach((node) => stack.push(node))
           console.log('inside stack', stack)
         }
         console.log('-----')
       }
-      return sum
+      return res
     }
   }
 }
