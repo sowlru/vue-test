@@ -1,11 +1,15 @@
 <template>
   <div class="container">
+    <div class="ALGORITHM">
+      <search-binary />
+      <!-- <tree-stack /> -->
+    </div>
+
     <!-- CHILD-PARENT -->
     <!-- <input-parent name="alex" /> -->
     <!-- <modal-parent :name="bob" /> -->
 
     <!-- COMPONENTS -->
-    <!-- <algorithm-test /> -->
     <!-- <charts-test v-model="data4chart" /> -->
     <!-- <flexbox-test /> -->
     <!-- <promise-test /> -->
@@ -14,7 +18,7 @@
     <!-- ELEMENT-PLUS -->
     <!-- <dialog-child /> -->
     <!-- <table-test /> -->
-    <tree-test />
+    <!-- <tree-test /> -->
 
     <div class="GRAPHICS">
       <!-- <canvas-test /> -->
@@ -35,11 +39,13 @@
 
 <script>
 /* eslint-disable */
+// ALGORITHMS
+import searchBinary from '@/algorithms/searchBinary'
+import treeStack from '@/algorithms/treeStack'
 // CHILD-PARENT
 import inputParent from '@/childParent/inputParent'
 import modalParent from '@/childParent/modalParent'
 // COMPONENTS
-import algorithmTest from '@/components/algorithmTest'
 import chartsTest from '@/components/chartsTest.vue'
 import flexboxTest from '@/components/flexboxTest.vue'
 import promiseTest from '@/components/promiseTest.vue'
@@ -49,25 +55,28 @@ import dialogChild from '@/elementPlus/dialogChild'
 import tableTest from '@/elementPlus/tableTest'
 import treeTest from '@/elementPlus/treeTest'
 // GRAPHICS
-// import canvasTest from '@/graphics/canvasTest.vue'
+import canvasTest from '@/graphics/canvasTest.vue'
 import ckEditorCDN from '@/graphics/ckEditorCDN.vue'
 import ckEditorCustom from '@/graphics/ckEditorCustom.vue'
 import ckEditorNPM from '@/graphics/ckEditorNPM.vue'
-// import fabricTest from '@/graphics/fabricTest.vue'
-// import svgTest from '@/graphics/svgTest.vue'
-// import toastEditor from '@/graphics/toastEditor.vue'
+import fabricTest from '@/graphics/fabricTest.vue'
+import svgTest from '@/graphics/svgTest.vue'
+import toastEditor from '@/graphics/toastEditor.vue'
 
 import i18nTest from '@/i18n/i18nTest.vue'
 import jestTest from '@/jest/jestTest.vue'
 import layoutTest from '@/layouts/layoutTest.vue'
 import storeTest from '@/store/storeTest.vue'
+import TreeStack from './algorithms/treeStack.vue'
 
 export default {
   components: {
+    searchBinary,
+    treeStack,
+
     inputParent,
     modalParent,
 
-    algorithmTest,
     chartsTest,
     flexboxTest,
     promiseTest,
@@ -77,18 +86,19 @@ export default {
     tableTest,
     treeTest,
 
-    // canvasTest,
+    canvasTest,
     ckEditorCDN,
     ckEditorCustom,
     ckEditorNPM,
-    // fabricTest,
-    // svgTest,
-    // toastEditor,
+    fabricTest,
+    svgTest,
+    toastEditor,
 
     i18nTest,
     jestTest,
     layoutTest,
-    storeTest
+    storeTest,
+    TreeStack
   },
   data() {
     return {
