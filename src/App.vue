@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="ALGORITHM">
-      <search-binary />
+      <!-- <search-binary /> -->
       <!-- <tree-stack /> -->
     </div>
 
@@ -11,7 +11,6 @@
 
     <!-- COMPONENTS -->
     <!-- <charts-test v-model="data4chart" /> -->
-    <!-- <flexbox-test /> -->
     <!-- <promise-test /> -->
     <!-- <proxy-test /> -->
 
@@ -28,6 +27,10 @@
       <!-- <fabric-test /> -->
       <!-- <svg-test /> -->
       <!-- <toast-editor /> -->
+    </div>
+
+    <div class="HTML">
+      <flexbox-test />
     </div>
 
     <!-- <i18n-test /> -->
@@ -47,7 +50,6 @@ import inputParent from '@/childParent/inputParent'
 import modalParent from '@/childParent/modalParent'
 // COMPONENTS
 import chartsTest from '@/components/chartsTest.vue'
-import flexboxTest from '@/components/flexboxTest.vue'
 import promiseTest from '@/components/promiseTest.vue'
 import proxyTest from '@/components/proxyTest.vue'
 // ELEMENT-PLUS
@@ -62,6 +64,8 @@ import ckEditorNPM from '@/graphics/ckEditorNPM.vue'
 import fabricTest from '@/graphics/fabricTest.vue'
 import svgTest from '@/graphics/svgTest.vue'
 import toastEditor from '@/graphics/toastEditor.vue'
+// HTML
+import flexboxTest from '@/html/flexboxTest.vue'
 
 import i18nTest from '@/i18n/i18nTest.vue'
 import jestTest from '@/jest/jestTest.vue'
@@ -78,7 +82,6 @@ export default {
     modalParent,
 
     chartsTest,
-    flexboxTest,
     promiseTest,
     proxyTest,
 
@@ -93,6 +96,8 @@ export default {
     fabricTest,
     svgTest,
     toastEditor,
+
+    flexboxTest,
 
     i18nTest,
     jestTest,
