@@ -30,7 +30,8 @@
     </div>
 
     <div class="HTML">
-      <flexbox-test />
+      <!-- <flexbox-test /> -->
+      <message-test />
     </div>
 
     <!-- <i18n-test /> -->
@@ -66,6 +67,7 @@ import svgTest from '@/graphics/svgTest.vue'
 import toastEditor from '@/graphics/toastEditor.vue'
 // HTML
 import flexboxTest from '@/html/flexboxTest.vue'
+import messageTest from '@/html/messageTest.vue'
 
 import i18nTest from '@/i18n/i18nTest.vue'
 import jestTest from '@/jest/jestTest.vue'
@@ -98,6 +100,7 @@ export default {
     toastEditor,
 
     flexboxTest,
+    messageTest,
 
     i18nTest,
     jestTest,
