@@ -1,11 +1,12 @@
 <template>
-  <div class="container">
+  <div class="container tal">
     <p>
       js: state:{ s1: 1 } | vue: $store.state.s1:
       {{ $store.state.s1 }}
     </p>
     <p>
-      js: getters: { g1(state) {return state.s1 * 2 }} | vue: $store.getters.g1:
+      js: getters: { g1(state) { return state.s1 * 2 }} | vue:
+      $store.getters.g1:
       {{ $store.getters.g1 }}
     </p>
 
@@ -38,15 +39,17 @@
       <b>
         import { mapState, mapGetters, mapMutations, mapActions } from 'vuex'
       </b>
+      methods:
     </p>
     <p>
-      md1.js: state: () => ({ ms1: 10 }) | vue: ...mapState({ ms1: (state) =>
-      state.md1.ms1 }) | ms1: {{ ms1 }}
+      md1.js: state: () => ({ ms1: 10 }) | <br />
+      vue computed: ...mapState({ ms1: (state) => state.md1.ms1 }) | ms1:
+      {{ ms1 }}
     </p>
     <button @click="$store.commit('mm1')">+</button>
     <span>
-      js: mutations: { m1(state) { state.s1 += 1 }}| vue: ...mapMutations({ mm1:
-      'md1/mm1' })
+      js: mutations: { m1(state) { state.s1 += 1 }}| <br />
+      vue methods: {...mapMutations({ mm1: 'md1/mm1' })}
     </span>
   </div>
 </template>
@@ -61,3 +64,8 @@ export default {
   methods: { ...mapMutations({ mm1: 'md1/mm1' }) }
 }
 </script>
+<style scoped>
+.tal {
+  text-align: left;
+}
+</style>

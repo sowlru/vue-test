@@ -31,13 +31,13 @@
 
     <div class="HTML">
       <!-- <flexbox-test /> -->
-      <message-test />
+      <!-- <message-test /> -->
     </div>
 
     <!-- <i18n-test /> -->
     <!-- <jest-test /> -->
     <!-- <layout-test /> -->
-    <!-- <store-test /> -->
+    <store-test />
   </div>
 </template>
 
