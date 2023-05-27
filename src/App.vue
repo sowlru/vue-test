@@ -9,18 +9,21 @@
     <!-- <input-parent name="alex" /> -->
     <!-- <modal-parent :name="bob" /> -->
 
-    <!-- COMPONENTS -->
-    <!-- <charts-test v-model="data4chart" /> -->
-    <!-- <promise-test /> -->
-    <!-- <proxy-test /> -->
+    <div class="COMPONENTS">
+      <next-tick-test />
+      <!-- <nextTick-test /> -->
+      <!-- <proxy-test /> -->
+    </div>
 
-    <!-- ELEMENT-PLUS -->
-    <!-- <dialog-child /> -->
-    <!-- <table-test /> -->
-    <!-- <tree-test /> -->
+    <div class="ELEMENT-PLUS">
+      <!-- <dialog-child /> -->
+      <!-- <table-test /> -->
+      <!-- <tree-test /> -->
+    </div>
 
     <div class="GRAPHICS">
       <!-- <canvas-test /> -->
+      <!-- <charts-test v-model="data4chart" /> -->
       <!-- <ckEditorCDN :msg="data4chart[0].name" /> -->
       <!-- <ckEditorCustom msg="from App" /> -->
       <!-- <ckEditorNPM msg="from App" /> -->
@@ -37,7 +40,7 @@
     <!-- <i18n-test /> -->
     <!-- <jest-test /> -->
     <!-- <layout-test /> -->
-    <store-test />
+    <!-- <store-test /> -->
   </div>
 </template>
 
@@ -50,7 +53,7 @@ import treeStack from '@/algorithms/treeStack'
 import inputParent from '@/childParent/inputParent'
 import modalParent from '@/childParent/modalParent'
 // COMPONENTS
-import chartsTest from '@/components/chartsTest.vue'
+import nextTickTest from '@/components/nextTickTest'
 import promiseTest from '@/components/promiseTest.vue'
 import proxyTest from '@/components/proxyTest.vue'
 // ELEMENT-PLUS
@@ -59,6 +62,7 @@ import tableTest from '@/elementPlus/tableTest'
 import treeTest from '@/elementPlus/treeTest'
 // GRAPHICS
 import canvasTest from '@/graphics/canvasTest.vue'
+import chartsTest from '@/graphics/chartsTest.vue'
 import ckEditorCDN from '@/graphics/ckEditorCDN.vue'
 import ckEditorCustom from '@/graphics/ckEditorCustom.vue'
 import ckEditorNPM from '@/graphics/ckEditorNPM.vue'
@@ -83,7 +87,7 @@ export default {
     inputParent,
     modalParent,
 
-    chartsTest,
+    nextTickTest,
     promiseTest,
     proxyTest,
 
@@ -92,6 +96,7 @@ export default {
     treeTest,
 
     canvasTest,
+    chartsTest,
     ckEditorCDN,
     ckEditorCustom,
     ckEditorNPM,
