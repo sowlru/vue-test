@@ -10,7 +10,7 @@
     <!-- <modal-parent :name="bob" /> -->
 
     <div class="COMPONENTS">
-      <next-tick-test />
+      <!-- <next-tick-test /> -->
       <!-- <nextTick-test /> -->
       <!-- <proxy-test /> -->
     </div>
@@ -39,7 +39,7 @@
 
     <!-- <i18n-test /> -->
     <!-- <jest-test /> -->
-    <!-- <layout-test /> -->
+    <layout-test />
     <!-- <store-test /> -->
   </div>
 </template>
