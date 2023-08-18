@@ -18,6 +18,7 @@
     <div class="ELEMENT-PLUS">
       <!-- <dialog-child /> -->
       <!-- <table-test /> -->
+      <tree-drop-test />
       <!-- <tree-test /> -->
     </div>
 
@@ -39,7 +40,7 @@
 
     <!-- <i18n-test /> -->
     <!-- <jest-test /> -->
-    <layout-test />
+    <!-- <layout-test /> -->
     <!-- <store-test /> -->
   </div>
 </template>
@@ -59,6 +60,7 @@ import proxyTest from '@/components/proxyTest.vue'
 // ELEMENT-PLUS
 import dialogChild from '@/elementPlus/dialogChild'
 import tableTest from '@/elementPlus/tableTest'
+import treeDropTest from '@/elementPlus/treeDropTest'
 import treeTest from '@/elementPlus/treeTest'
 // GRAPHICS
 import canvasTest from '@/graphics/canvasTest.vue'
@@ -93,6 +95,7 @@ export default {
 
     dialogChild,
     tableTest,
+    treeDropTest,
     treeTest,
 
     canvasTest,
