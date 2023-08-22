@@ -21,31 +21,68 @@ export default {
       dataSource: [
         {
           id: 100,
-          name: '100 - Общие сведения',
+          flowChartItemType_id: 5,
+          flowChartItem_name: '100 - 5 - Общие сведения',
+          treeLevel: 1,
           children: [
-            { id: 110, name: '110 - Об этом руководстве' },
-            { id: 120, name: '120 - Меры безопасности' }
+            {
+              id: 110,
+              flowChartItemType_id: 1,
+              flowChartItem_name: '110 - Об этом руководстве',
+              parent_id: 100,
+              treeLevel: 2
+            },
+            {
+              id: 120,
+              flowChartItemType_id: 1,
+              flowChartItem_name: '120 - Меры безопасности',
+              parent_id: 100,
+              treeLevel: 2
+            }
           ]
         },
         {
           id: 200,
-          name: '200 - Шасси',
+          flowChartItemType_id: 5,
+          flowChartItem_name: '200 - 5 - Шасси',
+          treeLevel: 1,
           children: [
             {
               id: 210,
-              name: '210 - Подвеска',
+              flowChartItemType_id: 1,
+              flowChartItem_name: '210 - Подвеска',
+              parent_id: 200,
+              treeLevel: 2,
               children: [
-                { id: 211, name: '211 - Передняя подвеска' },
-                { id: 212, name: '212 - Задняя подвеска' }
+                {
+                  id: 211,
+                  flowChartItemType_id: 1,
+                  flowChartItem_name: '211 - Передняя подвеска',
+                  parent_id: 210,
+                  treeLevel: 3
+                },
+                {
+                  id: 212,
+                  flowChartItemType_id: 1,
+                  flowChartItem_name: '212 - Задняя подвеска',
+                  parent_id: 210,
+                  treeLevel: 3
+                }
               ]
             },
-            { id: 220, name: '220 - Колеса и ступицы' }
+            {
+              id: 220,
+              flowChartItemType_id: 1,
+              flowChartItem_name: '220 - Колеса и ступицы',
+              parent_id: 200,
+              treeLevel: 2
+            }
           ]
         }
       ],
       defaultProps: {
         children: 'children',
-        label: 'name',
+        label: 'flowChartItem_name',
         id: 'id'
       }
     }
@@ -53,30 +90,31 @@ export default {
   mounted() {},
   methods: {
     allowDrop(draggingNode, dropNode, type) {
-      if (dropNode.data.name === 'treeLevel two 3-1') {
-        return type !== 'inner'
+      const drag_id = draggingNode.data.flowChartItemType_id
+      const drop_id = dropNode.data.flowChartItemType_id
+
+      if (drag_id == '5' && drag_id === drop_id) {
+        return false
       } else {
         return true
       }
     },
     handleDrop(draggingNode, dropNode, type, ev) {
-      const child = draggingNode.data
-      const parent = dropNode.data
+      const drag = draggingNode.data
+      const drop = dropNode.data
       console.log(
         '🚀 ~ file: treeDropTest.vue:58 ~ handleDrop',
         {
-          child
+          drag
         },
-        { parent },
+        { drop },
         { type },
         { ev }
       )
       const params = {}
-      params.flowChartItem_id = child.id
-      console.log(
-        '🚀 ~ file: treeDropTest.vue:73 ~ handleDrop ~ params:',
-        params
-      )
+      params.flowChartItem_id = drag.id
+      params.flowChartItem_parent_id = drop.id
+      console.log('🚀 handleDrop ~ params:', params)
     }
   }
 }
