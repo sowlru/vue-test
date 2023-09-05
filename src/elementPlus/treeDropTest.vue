@@ -127,6 +127,7 @@ export default {
       const params = {}
       // первый параметр для передачи на бэк - узел ставится впереди всех элементов
       params.flowChartItem_id = node.flowChartItem_id
+      // в зависимости от уровня вложенности меняется вычисление
       if (dropNod.treeLevel == 1) {
         if (dropType == 'after') {
           params.flowChartItem_top_id = dropNod ? dropNod.flowChartItem_id : 0
@@ -141,6 +142,22 @@ export default {
               params.flowChartItem_top_id = prevItem
             }
           }
+        }
+      } else if (dropNod.treeLevel == 2) {
+        if (dropType == 'after') {
+          params.flowChartItem_top_id = dropNod ? dropNod.flowChartItem_id : 0
+        } else if (dropType == 'before') {
+          // найти родителя массива 2 уровня
+          const parentNode = this.dataSource.find(
+            (v) => v.flowChartItem_id === dropNod.parent_id
+          )
+          console.log(
+            '🚀 ~ file: treeDropTest.vue:154 ~ handleDrop ~ parentNode:',
+            parentNode
+          )
+          // найти предыдущий элемент массива 2 уровня
+          const ar = parentNode.children.map((v) => v.flowChartItem_id)
+          console.log('🚀 ~ file: treeDropTest.vue:156 ~ handleDrop ~ ar:', ar)
         }
       }
       // params.flowChartItem_parent_id = dropNod.id

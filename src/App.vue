@@ -17,8 +17,8 @@
 
     <div class="ELEMENT-PLUS">
       <!-- <dialog-child /> -->
-      <!-- <table-test /> -->
-      <tree-drop-test />
+      <table-test />
+      <!-- <tree-drop-test /> -->
       <!-- <tree-test /> -->
     </div>
 
