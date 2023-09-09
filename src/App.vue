@@ -17,7 +17,8 @@
 
     <div class="ELEMENT-PLUS">
       <!-- <dialog-child /> -->
-      <table-test />
+      <select-test />
+      <!-- <table-test /> -->
       <!-- <tree-drop-test /> -->
       <!-- <tree-test /> -->
     </div>
@@ -59,6 +60,7 @@ import promiseTest from '@/components/promiseTest.vue'
 import proxyTest from '@/components/proxyTest.vue'
 // ELEMENT-PLUS
 import dialogChild from '@/elementPlus/dialogChild'
+import selectTest from '@/elementPlus/selectTest'
 import tableTest from '@/elementPlus/tableTest'
 import treeDropTest from '@/elementPlus/treeDropTest'
 import treeTest from '@/elementPlus/treeTest'
@@ -94,6 +96,7 @@ export default {
     proxyTest,
 
     dialogChild,
+    selectTest,
     tableTest,
     treeDropTest,
     treeTest,
@@ -138,6 +141,12 @@ export default {
 </script>
 
 <style>
+* {
+  margin: 0;
+}
+.container {
+  background-color: #eee;
+}
 .icon {
   width: 300px;
   fill: red;
@@ -145,9 +154,6 @@ export default {
 }
 .icon:hover {
   fill: blue;
-}
-.container {
-  background-color: #eee;
 }
 </style>
 <!-- 

@@ -1,7 +1,8 @@
 <template>
-  <div class="tableContainer">
-    <el-row :gutter="20">
-      <el-col :span="24">
+  <div class="header">tableTest</div>
+  <el-main>
+    <el-row :gutter="10">
+      <el-col :span="12">
         <el-table
           :data="pagedCities"
           style="width: 100%"
@@ -23,28 +24,34 @@
           @current-change="handlePagination"
         />
       </el-col>
+      <!-- ==================== -->
+      <el-col :span="12">
+        <el-table
+          :data="cities"
+          border
+          :show-header="false"
+          class="test-table"
+          :row-class="rowClass"
+        >
+          <!-- <el-table-column class="test-column" width="180" /> -->
+          <el-table-column width="100">
+            <template #default="scope">
+              <div class="test-col1">
+                {{ scope.row.city_id }}
+              </div>
+            </template>
+          </el-table-column>
+          <el-table-column>
+            <template #default="scope">
+              <div class="test-col2">
+                {{ scope.row.city_name }}
+              </div>
+            </template>
+          </el-table-column>
+        </el-table>
+      </el-col>
     </el-row>
-    <el-row :gutter="20">
-      <el-select v-model="vm" placeholder="Выберите тип" clearable>
-        <el-option
-          v-for="item in cityTypes"
-          :key="item.cityTypeId"
-          :label="item.cityTypeName"
-          :value="item.cityTypeName"
-        />
-      </el-select>
-    </el-row>
-    <el-row :gutter="20">
-      <el-select-v2
-        v-model="vm"
-        filterable
-        :options="options"
-        placeholder="Please select"
-        style="width: 240px"
-        multiple
-      />
-    </el-row>
-  </div>
+  </el-main>
 </template>
 
 <script>
@@ -91,7 +98,7 @@ export default {
           cityType: 'small'
         }
       ]
-    }, 5000)
+    }, 1000)
   },
   methods: {
     handleSelectionChange(val) {
@@ -116,4 +123,32 @@ export default {
   }
 }
 </script>
-<style></style>
+<style>
+.test-table {
+  color: red;
+}
+.test-table .el-table__row {
+  background-color: blue;
+  color: red;
+}
+.rowClass {
+  height: 200px;
+  color: blue;
+}
+.test-column {
+  background-color: blue;
+  height: 200px;
+}
+.test-col1 {
+  padding: 20px 0;
+}
+.test-col2 {
+  vertical-align: top !important;
+  text-align: right;
+}
+.header {
+  background-color: #ddd;
+  padding: 10px 0;
+  color: teal;
+}
+</style>
