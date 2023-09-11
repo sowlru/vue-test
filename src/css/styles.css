@@ -1,0 +1,73 @@
+/* normalize */
+body {
+  margin: 0;
+}
+
+/* reset */
+img {
+  max-width: 100%;
+  height: auto;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+li {
+  margin: 0;
+  font-size: 100%;
+  font-weight: normal;
+}
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+}
+/* base */
+body {
+  font-family: 'Dancing Script', cursive;
+  font-weight: 300;
+  color: blue;
+}
+h1,
+h2,
+h3 {
+  font-weight: 300;
+  color: #333;
+}
+h1 {
+  font-size: 55px;
+  margin: 30px 0;
+}
+h2 {
+  font-size: 35px;
+  margin: 20px 0;
+}
+h3 {
+  font-size: 26px;
+  margin: 16px 0;
+}
+strong {
+  font-weight: 400;
+}
+p {
+  font-weight: 300;
+  margin: 0 16px;
+}
+.wrap {
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 30px;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -15px;
+}
+.col {
+  box-sizing: border-box;
+  margin: 15px;
+}

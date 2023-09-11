@@ -17,7 +17,7 @@
 
     <div class="ELEMENT-PLUS">
       <!-- <dialog-child /> -->
-      <select-test />
+      <!-- <select-test /> -->
       <!-- <table-test /> -->
       <!-- <tree-drop-test /> -->
       <!-- <tree-test /> -->
@@ -37,6 +37,7 @@
     <div class="HTML">
       <!-- <flexbox-test /> -->
       <!-- <message-test /> -->
+      <site-test />
     </div>
 
     <!-- <i18n-test /> -->
@@ -76,6 +77,7 @@ import toastEditor from '@/graphics/toastEditor.vue'
 // HTML
 import flexboxTest from '@/html/flexboxTest.vue'
 import messageTest from '@/html/messageTest.vue'
+import siteTest from '@/html/siteTest.vue'
 
 import i18nTest from '@/i18n/i18nTest.vue'
 import jestTest from '@/jest/jestTest.vue'
@@ -112,6 +114,7 @@ export default {
 
     flexboxTest,
     messageTest,
+    siteTest,
 
     i18nTest,
     jestTest,

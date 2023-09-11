@@ -6,6 +6,8 @@ import 'element-plus/dist/index.css'
 import plugins from '@/plugins'
 import store from '@/store'
 import router from './router'
+// css
+import '@/css/styles.css'
 
 // i18n
 import { createI18n } from 'vue-i18n'
