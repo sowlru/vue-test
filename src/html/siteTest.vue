@@ -1,22 +1,16 @@
 <template>
   <site-test-header />
-  <main>main</main>
+  <hr />
+  <site-test-adv />
+  <hr />
   <site-test-team />
   <footer>footer</footer>
 </template>
 <script>
 import siteTestHeader from '@/html/siteTestHeader.vue'
 import siteTestTeam from '@/html/siteTestTeam.vue'
+import siteTestAdv from '@/html/siteTestAdv.vue'
 export default {
-  components: { siteTestHeader, siteTestTeam }
+  components: { siteTestHeader, siteTestTeam, siteTestAdv }
 }
 </script>
-<style>
-/* main */
-main {
-  background-color: #ddd;
-}
-footer {
-  background-color: #eee;
-}
-</style>
