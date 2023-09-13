@@ -37,12 +37,13 @@
     <div class="HTML">
       <!-- <flexbox-test /> -->
       <!-- <message-test /> -->
-      <site-test />
+      <!-- <site-test /> -->
     </div>
 
     <!-- <i18n-test /> -->
     <!-- <jest-test /> -->
     <!-- <layout-test /> -->
+    <shop-app />
     <!-- <store-test /> -->
   </div>
 </template>
@@ -82,6 +83,7 @@ import siteTest from '@/html/siteTest.vue'
 import i18nTest from '@/i18n/i18nTest.vue'
 import jestTest from '@/jest/jestTest.vue'
 import layoutTest from '@/layouts/layoutTest.vue'
+import shopApp from '@/sites/shop/shopApp.vue'
 import storeTest from '@/store/storeTest.vue'
 import TreeStack from './algorithms/treeStack.vue'
 
@@ -119,6 +121,7 @@ export default {
     i18nTest,
     jestTest,
     layoutTest,
+    shopApp,
     storeTest,
     TreeStack
   },

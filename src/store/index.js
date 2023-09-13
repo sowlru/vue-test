@@ -7,7 +7,9 @@ import { module1 } from '@/store/module1'
 export default createStore({
   // в state хранятся данные приложения
   state: {
-    s1: 1
+    s1: 1,
+    price: 56, //shop
+    cnt: 7 // shop
   },
   // getters - аналог computed - свойства
   getters: {
