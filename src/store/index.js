@@ -8,8 +8,9 @@ export default createStore({
   // в state хранятся данные приложения
   state: {
     s1: 1,
-    price: 56, //shop
-    cnt: 7 // shop
+    // shop
+    price: 10,
+    cnt: 7
   },
   // getters - аналог computed - свойства
   getters: {
@@ -18,12 +19,22 @@ export default createStore({
     }
   },
   // напрямую state изменять нельзя, только через мутации
+  // state В параметрах - это ссылка на state
   mutations: {
     m1(state) {
       state.s1 += 1
     },
     m2(state) {
       state.s1 -= 1
+    },
+    // shop
+    decrease(state) {
+      if (state.cnt > 0) {
+        state.cnt--
+      }
+    },
+    increase(state) {
+      state.cnt++
     }
   },
   // actions - ф-ции, внутри себя используют мутации
@@ -35,5 +46,16 @@ export default createStore({
   // module - изолированный кусочек state
   modules: {
     md1: module1
-  }
+  },
+  // strict: true
+  strict: process.env.NODE_ENV !== 'production'
+
+  // class Vuex {
+  //   state = {}
+  //   mutations = {}
+  //   commit(name){
+  //     let fn = this.mutations[name]
+  //     fn(this.state)
+  //   }
+  // }
 })

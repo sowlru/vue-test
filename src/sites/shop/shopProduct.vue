@@ -3,8 +3,8 @@
     Product <strong>{{ $store.state.price }}</strong>
   </h3>
   <hr />
-  <button class="btn">-1</button>
-  <button class="btn">+1</button>
+  <button class="btn" @click="$store.commit('decrease')">-1</button>
+  <button class="btn" @click="$store.commit('increase')">+1</button>
 </template>
 <style>
 .btn {

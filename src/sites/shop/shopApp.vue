@@ -1,5 +1,6 @@
 <template>
   <shop-header />
+  <hr />
   <shop-content />
 </template>
 <script>
