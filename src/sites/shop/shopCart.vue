@@ -1,8 +1,14 @@
 <template>
   <h3>
-    In cart: <strong>{{ $store.state.cnt }}</strong>
+    In cart: <strong>{{ cnt }}</strong>
   </h3>
   <h3>
-    Total: <strong>{{ $store.state.price * $store.state.cnt }}</strong>
+    Total: <strong>{{ total }}</strong>
   </h3>
 </template>
+<script>
+import { mapGetters } from 'vuex'
+export default {
+  computed: mapGetters(['cnt', 'total'])
+}
+</script>
