@@ -62,6 +62,10 @@ export default createStore({
     increase({ state, commit }) {
       commit('setCnt', state.cnt + 1)
     },
+    setCnt({ commit }, val) {
+      let cnt = parseInt(val)
+      commit('setCnt', isNaN(cnt) ? 1 : cnt)
+    },
     send(store) {
       store.commit('setOrderStatus', 1)
       // request to server

@@ -3,19 +3,21 @@
     Product <strong>{{ price }}</strong>
   </h3>
   <hr />
-  <button class="btn" @click="$store.dispatch('decrease')">-1</button>
-  <button class="btn" @click="$store.dispatch('increase')">+1</button>
-  <button class="btn" @click="sendOrder">send</button>
+  <button class="btn" @click="decrease">-1</button>
+  <input type="text" class="inp" :value="cnt" @change="onSetCnt" />
+  <button class="btn" @click="increase">+1</button>
+  <button class="btn" @click="send">send</button>
   <div v-if="orderIsPending">Pending...</div>
   <div v-if="orderIsDone">Done!</div>
 </template>
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 export default {
-  computed: mapGetters(['price', 'orderIsPending', 'orderIsDone']),
+  computed: mapGetters(['price', 'cnt', 'orderIsPending', 'orderIsDone']),
   methods: {
-    sendOrder() {
-      this.$store.dispatch('send')
+    ...mapActions(['decrease', 'increase', 'send']),
+    onSetCnt(e) {
+      this.$store.dispatch('setCnt', parseInt(e.target.value))
     }
   }
 }
@@ -27,5 +29,12 @@ export default {
   padding: 5px;
   border-radius: 5px;
   cursor: pointer;
+}
+.inp {
+  width: 60px;
+  height: 40px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 18px;
 }
 </style>
