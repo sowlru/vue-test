@@ -2,6 +2,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '@/layouts/HomeView.vue'
 
+import shopProductsList from '@/sites/shop/shopProductsList.vue'
+import shopCart from '@/sites/shop/shopCart.vue'
+import shopCheckout from '@/sites/shop/shopCheckout.vue'
+
 const routes = [
   {
     path: '/',
@@ -15,6 +19,18 @@ const routes = [
     meta: { layout: 'blank' },
     component: () =>
       import(/* webpackChunkName: "auth" */ '../layouts/AuthView.vue')
+  },
+  {
+    path: '/list',
+    component: shopProductsList
+  },
+  {
+    path: '/cart',
+    component: shopCart
+  },
+  {
+    path: '/checkout',
+    component: shopCheckout
   }
 ]
 
