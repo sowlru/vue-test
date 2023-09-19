@@ -5,6 +5,7 @@ import HomeView from '@/layouts/HomeView.vue'
 import shopProductsList from '@/sites/shop/shopProductsList.vue'
 import shopCart from '@/sites/shop/shopCart.vue'
 import shopCheckout from '@/sites/shop/shopCheckout.vue'
+import shopError404 from '@/sites/shop/shopError404.vue'
 
 const routes = [
   {
@@ -22,15 +23,22 @@ const routes = [
   },
   {
     path: '/list',
-    component: shopProductsList
+    component: shopProductsList,
+    name: 'list'
   },
   {
     path: '/cart',
-    component: shopCart
+    component: shopCart,
+    name: 'cart'
   },
   {
     path: '/checkout',
-    component: shopCheckout
+    component: shopCheckout,
+    name: 'order'
+  },
+  {
+    path: '/:any(.*)',
+    component: shopError404
   }
 ]
 

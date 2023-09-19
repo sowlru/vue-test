@@ -13,14 +13,13 @@
       <div class="row">
         <div class="col col-menu">
           <ul class="list-group">
-            <li class="list-group-item">
-              <router-link to="/list">Products</router-link>
-            </li>
-            <li class="list-group-item">
-              <router-link to="/cart">Cart</router-link>
-            </li>
-            <li class="list-group-item">
-              <router-link to="/checkout">Checkout</router-link>
+            <li class="list-group-item" v-for="item in menu" :key="item.route">
+              <router-link
+                :to="{ name: item.route }"
+                exact-active-class="my-active"
+              >
+                {{ item.text }}
+              </router-link>
             </li>
           </ul>
         </div>
@@ -30,11 +29,16 @@
   </section>
 </template>
 <script>
-// import shopHeader from '@/sites/shop/shopHeader.vue'
-// import shopContent from '@/sites/shop/shopContent.vue'
-
 export default {
-  // components: { shopContent }
+  data() {
+    return {
+      menu: [
+        { route: 'list', text: 'Products' },
+        { route: 'cart', text: 'Cart' },
+        { route: 'order', text: 'Checkout' }
+      ]
+    }
+  }
 }
 </script>
 <style>
@@ -63,5 +67,8 @@ export default {
 .col-main {
   border: 1px solid grey;
   width: calc((100% / 12) * 9 - 30px);
+}
+.my-active {
+  color: red;
 }
 </style>
