@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '@/layouts/HomeView.vue'
 
 import shopProductsList from '@/sites/shop/shopProductsList.vue'
+import shopProduct from '@/sites/shop/shopProduct.vue'
 import shopCart from '@/sites/shop/shopCart.vue'
 import shopCheckout from '@/sites/shop/shopCheckout.vue'
 import shopError404 from '@/sites/shop/shopError404.vue'
@@ -25,6 +26,10 @@ const routes = [
     path: '/list',
     component: shopProductsList,
     name: 'list'
+  },
+  {
+    path: '/product/:id',
+    component: shopProduct
   },
   {
     path: '/cart',

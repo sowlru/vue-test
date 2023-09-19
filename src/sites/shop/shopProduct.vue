@@ -1,5 +1,5 @@
 <template>
-  <h3>Title</h3>
+  <h3>Title {{ $route.params.id }}</h3>
   <hr />
   <div>price</div>
 </template>
