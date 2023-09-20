@@ -3,11 +3,15 @@
   <hr />
   <div class="cart-main">
     <div>table</div>
-    <router-link class="cart-btn" :to="{ name: 'order' }">Order</router-link>
+    <router-link class="btn-cart b1" :to="{ name: 'order' }">Order</router-link>
   </div>
 </template>
 <script>
-export default {}
+export default {
+  mounted() {
+    console.log('mounted shopCart')
+  }
+}
 </script>
 <style>
 .cart-main {
@@ -15,7 +19,7 @@ export default {}
   justify-content: space-around;
   align-items: center;
 }
-.cart-btn {
+.btn-cart {
   /* width: 60px; */
   /* height: 40px; */
   margin: 10px 0px;
@@ -24,5 +28,9 @@ export default {}
   cursor: pointer;
   background-color: aquamarine;
   line-height: 30px;
+  text-decoration: none;
+}
+.b1 {
+  border: 1px solid black;
 }
 </style>
