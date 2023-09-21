@@ -3,8 +3,8 @@
 
 import { createStore } from 'vuex'
 import { module1 } from '@/store/module1'
-import product from '@/store/product'
-// import storeCart from '@/store/storeCart'
+import product from '@/sites/shop/product'
+import cart from '@/sites/shop/cart'
 
 export default createStore({
   // в state хранятся данные приложения
@@ -79,8 +79,8 @@ export default createStore({
   // module - изолированный кусочек state
   modules: {
     md1: module1,
-    product
-    // storeCart
+    product,
+    cart
   },
   // strict: true
   strict: process.env.NODE_ENV !== 'production'

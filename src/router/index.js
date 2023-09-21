@@ -28,6 +28,7 @@ const routes = [
     name: 'list'
   },
   {
+    name: 'product',
     path: '/product/:id',
     component: shopProduct
   },

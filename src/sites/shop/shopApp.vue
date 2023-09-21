@@ -59,10 +59,11 @@ export default {
 }
 .list-group-item {
   transition: background 0.3s, color 0.3s;
-  padding-bottom: 5px;
+  padding-bottom: 15px;
 }
 .list-group-item a {
   text-decoration: none;
+  font-size: 20px;
 }
 .col-main {
   border: 1px solid grey;
