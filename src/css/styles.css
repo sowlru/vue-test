@@ -71,3 +71,9 @@ p {
   box-sizing: border-box;
   margin: 15px;
 }
+.df {
+  display: flex;
+}
+.jcsa {
+  justify-content: space-around;
+}

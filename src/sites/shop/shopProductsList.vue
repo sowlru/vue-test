@@ -11,19 +11,37 @@
         >
           Read more
         </router-link>
-        <p style="margin-bottom: 10px">In cart: {{ inCart(item.id) }}</p>
-        <button class="btn-cart">In cart</button>
+        <!-- <p style="margin-bottom: 10px">In cart: {{ inCart(item.id) }}</p> -->
+        <div class="df jcsa">
+          <button
+            v-if="!inCart(item.id)"
+            class="btn-cart"
+            @click="add(item.id)"
+          >
+            Add
+          </button>
+          <button
+            v-if="inCart(item.id)"
+            class="btn-cart"
+            @click="remove(item.id)"
+          >
+            Remove
+          </button>
+        </div>
       </div>
     </div>
   </div>
 </template>
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 export default {
   computed: {
     // ...mapGetters({ productList: 'product/all' })
     ...mapGetters('product', { productList: 'all' }),
     ...mapGetters('cart', ['inCart'])
+  },
+  methods: {
+    ...mapActions('cart', ['add', 'remove'])
   }
 }
 </script>

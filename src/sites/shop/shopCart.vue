@@ -7,11 +7,7 @@
   </div>
 </template>
 <script>
-export default {
-  mounted() {
-    console.log('mounted shopCart')
-  }
-}
+export default {}
 </script>
 <style>
 .cart-main {

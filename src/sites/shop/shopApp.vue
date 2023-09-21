@@ -3,7 +3,9 @@
     <div class="wrap">
       <div class="row">
         <div class="col col-header"><h2>Site</h2></div>
-        <div class="col col-cart"><div>In cart:</div></div>
+        <div class="col col-cart">
+          <div>In cart: {{ length }}</div>
+        </div>
       </div>
     </div>
   </header>
@@ -29,6 +31,7 @@
   </section>
 </template>
 <script>
+import { mapGetters } from 'vuex'
 export default {
   data() {
     return {
@@ -38,16 +41,21 @@ export default {
         { route: 'order', text: 'Checkout' }
       ]
     }
+  },
+  computed: {
+    ...mapGetters('cart', ['length'])
   }
 }
 </script>
 <style>
 .col-header {
   border: 1px solid grey;
+
   width: calc((100% / 12) * 9 - 30px);
 }
 .col-cart {
-  border: 1px solid grey;
+  border-left: 1px solid #ddd;
+  padding-left: 10px;
   width: calc((100% / 12) * 3 - 30px);
 }
 .col-menu {

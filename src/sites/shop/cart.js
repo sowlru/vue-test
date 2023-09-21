@@ -1,6 +1,6 @@
 export default {
   state: {
-    items: stub()
+    items: []
   },
   getters: {
     // inCart(state) {
@@ -8,10 +8,31 @@ export default {
     //     return state.items.some((item) => item.id == id)
     //   }
     // }
-    inCart: (state) => (id) => state.items.some((item) => item.id == id)
+    inCart: (state) => (id) => state.items.some((item) => item.id == id),
+    length(state) {
+      return state.items.length
+    }
   },
-  mutations: {},
-  actions: {},
+  mutations: {
+    add(state, id) {
+      state.items.push({ id, сnt: 1 })
+    },
+    remove(state, id) {
+      state.items = state.items.filter((item) => item.id != id)
+    }
+  },
+  actions: {
+    add({ commit, getters }, id) {
+      if (!getters.inCart(id)) {
+        commit('add', id)
+      }
+    },
+    remove({ commit, getters }, id) {
+      if (getters.inCart(id)) {
+        commit('remove', id)
+      }
+    }
+  },
   namespaced: true
 }
 
