@@ -2,9 +2,10 @@
   <header>
     <div class="wrap">
       <div class="row">
-        <div class="col col-header"><h2>Site</h2></div>
+        <div class="col col-header"><h1>AK</h1></div>
         <div class="col col-cart">
           <div>In cart: {{ length }}</div>
+          <div>Total: {{ total }}</div>
         </div>
       </div>
     </div>
@@ -12,7 +13,7 @@
   <hr />
   <section>
     <div class="wrap">
-      <div class="row">
+      <div class="row" style="margin-top: 20px">
         <div class="col col-menu">
           <ul class="list-group">
             <li class="list-group-item" v-for="item in menu" :key="item.route">
@@ -43,13 +44,13 @@ export default {
     }
   },
   computed: {
-    ...mapGetters('cart', ['length'])
+    ...mapGetters('cart', ['length', 'total'])
   }
 }
 </script>
 <style>
 .col-header {
-  border: 1px solid grey;
+  /* border: 1px solid grey; */
   width: calc((100% / 12) * 10 - 30px);
 }
 .col-cart {
@@ -73,7 +74,6 @@ export default {
   font-size: 20px;
 }
 .col-main {
-  border: 1px solid grey;
   width: calc((100% / 12) * 9 - 30px);
 }
 .my-active {

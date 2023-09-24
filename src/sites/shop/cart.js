@@ -11,11 +11,20 @@ export default {
     inCart: (state) => (id) => state.items.some((item) => item.id == id),
     length(state) {
       return state.items.length
+    },
+    itemsDetailed: (state, getters, rootState, rootGetters) => {
+      return state.items.map((item) => {
+        let product = rootGetters['product/one'](item.id)
+        return { ...product, cnt: item.cnt }
+      })
+    },
+    total: (state, getters) => {
+      return getters.itemsDetailed.reduce((ac, el) => ac + el.price * el.cnt, 0)
     }
   },
   mutations: {
     add(state, id) {
-      state.items.push({ id, сnt: 1 })
+      state.items.push({ id, cnt: 1 })
     },
     remove(state, id) {
       state.items = state.items.filter((item) => item.id != id)

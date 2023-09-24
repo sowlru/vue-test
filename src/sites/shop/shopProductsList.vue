@@ -1,6 +1,6 @@
 <template>
-  <h3>Products</h3>
   <div class="wrap">
+    <h2>Products</h2>
     <div class="row">
       <div class="col col-item" v-for="item in productList" :key="item.id">
         <h3 style="margin-bottom: 100px">{{ item.title }}</h3>
