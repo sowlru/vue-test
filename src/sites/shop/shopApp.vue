@@ -50,13 +50,12 @@ export default {
 <style>
 .col-header {
   border: 1px solid grey;
-
-  width: calc((100% / 12) * 9 - 30px);
+  width: calc((100% / 12) * 10 - 30px);
 }
 .col-cart {
   border-left: 1px solid #ddd;
   padding-left: 10px;
-  width: calc((100% / 12) * 3 - 30px);
+  width: calc((100% / 12) * 2 - 30px);
 }
 .col-menu {
   border-right: 1px solid #ddd;

@@ -3,7 +3,8 @@ export default {
     items: stub()
   },
   getters: {
-    all: (state) => state.items
+    all: (state) => state.items,
+    one: (state) => (id) => state.items.find((item) => item.id == id)
   },
   mutations: {},
   actions: {},
