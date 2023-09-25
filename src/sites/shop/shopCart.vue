@@ -19,8 +19,19 @@
             <td class="cart-td">{{ p.cnt }}</td>
             <td class="cart-td">{{ p.price * p.cnt }}</td>
             <td class="cart-td">
-              <button class="btn-cart" style="margin-right: 10px">-1</button>
-              <button class="btn-cart">+1</button>
+              <button
+                class="btn-cart"
+                style="margin-right: 10px"
+                @click="setCnt({ id: p.id, cnt: p.cnt - 1 })"
+              >
+                -1
+              </button>
+              <button
+                class="btn-cart"
+                @click="setCnt({ id: p.id, cnt: p.cnt + 1 })"
+              >
+                +1
+              </button>
             </td>
           </tr>
         </tbody>
@@ -37,8 +48,10 @@
 import { mapGetters, mapActions } from 'vuex'
 export default {
   computed: {
-    // ...mapGetters('cart', { products: 'itemsDetailed' })
     ...mapGetters('cart', { products: 'itemsDetailed' })
+  },
+  methods: {
+    ...mapActions('cart', ['setCnt'])
   }
 }
 </script>

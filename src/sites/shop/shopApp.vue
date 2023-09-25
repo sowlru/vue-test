@@ -1,7 +1,7 @@
 <template>
   <header>
     <div class="wrap">
-      <div class="row">
+      <div class="row" style="border-bottom: 1px solid #ddd">
         <div class="col col-header"><h1>AK</h1></div>
         <div class="col col-cart">
           <div>In cart: {{ length }}</div>
@@ -10,7 +10,6 @@
       </div>
     </div>
   </header>
-  <hr />
   <section>
     <div class="wrap">
       <div class="row" style="margin-top: 20px">

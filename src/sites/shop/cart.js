@@ -28,6 +28,10 @@ export default {
     },
     remove(state, id) {
       state.items = state.items.filter((item) => item.id != id)
+    },
+    setCnt(state, { id, cnt }) {
+      let item = state.items.find((item) => item.id == id)
+      item.cnt = cnt
     }
   },
   actions: {
@@ -39,6 +43,13 @@ export default {
     remove({ commit, getters }, id) {
       if (getters.inCart(id)) {
         commit('remove', id)
+      }
+    },
+    setCnt({ commit, getters }, { id, cnt }) {
+      if (getters.inCart(id)) {
+        let item = getters.itemsDetailed.find((item) => item.id == id)
+        let validCnt = Math.min(Math.max(cnt, 1), item.rest)
+        commit('setCnt', { id, cnt: validCnt })
       }
     }
   },
