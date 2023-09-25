@@ -1,13 +1,25 @@
 export default {
   state: {
-    items: stub()
+    items: []
   },
   getters: {
     all: (state) => state.items,
     one: (state) => (id) => state.items.find((item) => item.id == id)
   },
-  mutations: {},
-  actions: {},
+  mutations: {
+    setItems(state, products) {
+      state.items = products
+    }
+  },
+  actions: {
+    async load({ commit }) {
+      let res = await fetch(
+        'http://faceprog.ru/reactcourseapi/products/all.php'
+      )
+      let products = await res.json()
+      commit('setItems', products)
+    }
+  },
   namespaced: true
 }
 

@@ -20,10 +20,12 @@ const i18n = createI18n({
   messages
 })
 
-const app = createApp(App)
-app.use(ElementPlus)
-app.use(plugins)
-app.use(i18n)
-app.use(router)
-app.use(store)
-app.mount('#app')
+store.dispatch('product/load').then(() => {
+  const app = createApp(App)
+  app.use(ElementPlus)
+  app.use(plugins)
+  app.use(i18n)
+  app.use(router)
+  app.use(store)
+  app.mount('#app')
+})
