@@ -1,6 +1,9 @@
+const BASE_URL = 'http://faceprog.ru/reactcourseapi/cart/'
+
 export default {
   state: {
-    items: []
+    items: [],
+    token: null
   },
   getters: {
     // inCart(state) {
@@ -23,6 +26,10 @@ export default {
     }
   },
   mutations: {
+    load(state, { cart, token }) {
+      state.items = cart
+      state.token = token
+    },
     add(state, id) {
       state.items.push({ id, cnt: 1 })
     },
@@ -35,14 +42,35 @@ export default {
     }
   },
   actions: {
-    add({ commit, getters }, id) {
+    async load({ commit }) {
+      let oldToken = localStorage.getItem('CART_TOKEN')
+      let res = await fetch(`${BASE_URL}load.php?token=${oldToken}`)
+      let { cart, token, needUpdate } = await res.json()
+      if (needUpdate) {
+        localStorage.setItem('CART_TOKEN', token)
+      }
+      commit('load', { cart, token })
+    },
+    async add({ commit, getters, state }, id) {
       if (!getters.inCart(id)) {
-        commit('add', id)
+        let res = await fetch(
+          `${BASE_URL}add.php?token=${state.token}&id=${id}`
+        )
+        let r = await res.json()
+        if (r) {
+          commit('add', id)
+        }
       }
     },
-    remove({ commit, getters }, id) {
+    async remove({ commit, getters, state }, id) {
       if (getters.inCart(id)) {
-        commit('remove', id)
+        let res = await fetch(
+          `${BASE_URL}remove.php?token=${state.token}&id=${id}`
+        )
+        let r = await res.json()
+        if (r) {
+          commit('add', id)
+        }
       }
     },
     setCnt({ commit, getters }, { id, cnt }) {

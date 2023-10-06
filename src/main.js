@@ -29,3 +29,4 @@ store.dispatch('product/load').then(() => {
   app.use(store)
   app.mount('#app')
 })
+store.dispatch('cart/load')
