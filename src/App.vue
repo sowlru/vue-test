@@ -31,7 +31,7 @@
       <!-- <ckEditorNPM msg="from App" /> -->
       <!-- <fabric-test /> -->
       <!-- <svg-test /> -->
-      <!-- <toast-editor /> -->
+      <toast-editor />
     </div>
 
     <div class="HTML">
@@ -43,7 +43,7 @@
     <!-- <i18n-test /> -->
     <!-- <jest-test /> -->
     <!-- <layout-test /> -->
-    <shop-app />
+    <!-- <shop-app /> -->
     <!-- <store-test /> -->
   </div>
 </template>
