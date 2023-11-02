@@ -90,8 +90,7 @@
   margin-top: 0;
   color: #1d9d73;
 }
-.adv-item__desc {
-}
+
 @media screen and (max-width: 1100px) {
   .adv-item {
     width: calc(100% / 1 - 30px);

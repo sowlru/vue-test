@@ -24,14 +24,14 @@
     </div>
 
     <div class="GRAPHICS">
-      <!-- <canvas-test /> -->
+      <canvas-test />
       <!-- <charts-test v-model="data4chart" /> -->
       <!-- <ckEditorCDN :msg="data4chart[0].name" /> -->
       <!-- <ckEditorCustom msg="from App" /> -->
       <!-- <ckEditorNPM msg="from App" /> -->
       <!-- <fabric-test /> -->
       <!-- <svg-test /> -->
-      <toast-editor />
+      <!-- <toast-editor /> -->
     </div>
 
     <div class="HTML">
