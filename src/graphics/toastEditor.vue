@@ -30,7 +30,7 @@ export default {
         document.querySelector('#canvas', {
           includeUI: {
             loadImage: {
-              path: '/public/favicon.ico',
+              path: '/public/background.jpg',
               name: 'SampleImage'
             },
             theme: whiteTheme,
@@ -77,6 +77,9 @@ export default {
   },
   mounted() {
     this.initEditor()
+  },
+  unmounted() {
+    this.initEditor.destroy()
   }
 }
 </script>
